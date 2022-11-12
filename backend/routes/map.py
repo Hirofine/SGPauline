@@ -55,27 +55,27 @@ async def write_data(map: Map):
             
             tmpleverroom = False
             #Creation des salles levier roomid: 6
-            # if(i*map.ysize + j == 6):
-            #     tmpleverroom = True
-            #     conn.execute(leverrooms.insert().values(
-            #         id = map.id,
-            #         mapid = map.id,
-            #         roomid = i*map.ysize + j,
-            #         posx = i,
-            #         posy = j,   
-            #         state = False,
-            #         exo = "exo"
-            #     ))
+            if(i*map.ysize + j == 6 or i*map.ysize + j == 2):
+                tmpleverroom = True
+                conn.execute(leverrooms.insert().values(
+                    id = map.id,
+                    mapid = map.id,
+                    roomid = i*map.ysize + j,
+                    posx = i,
+                    posy = j,   
+                    state = False,
+                    exo = "exo"
+                ))
                   
             conn.execute(rooms.insert().values(
                 id = i*map.ysize + j,
                 mapid = map.id,
                 posx = i,
-                posy = j,
+                posy = j,                
                 posmod = tmpposmod,    
                 trapped = False,
                 bonus = False,
-                leverroom = False,
+                lever = tmpleverroom,
                 isfound = False
             )) 
             
@@ -91,7 +91,7 @@ async def update_data(id:int, map: Map):
     
     return conn.execute(maps.selec()).fetchall()
 
-@map.delete("/")
+@map.delete("/map/")
 async def delete_data():
     conn.execute(rooms.delete())
     conn.execute(maps.delete())

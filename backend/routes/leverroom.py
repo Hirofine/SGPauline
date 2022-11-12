@@ -21,3 +21,13 @@ async def read_data(mapid: int):
 async def delete_data():
     conn.execute(leverrooms.delete())
     return conn.execute(leverrooms.select()).fetchall()
+
+
+@leverroom.put("/leverroom/{id}")
+async def update_data(id:int, state: bool):
+    conn.execute(leverrooms.update().values(
+        state = state       
+        
+    ).where(leverrooms.c.id == id))
+    
+    return conn.execute(leverrooms.select()).fetchall()

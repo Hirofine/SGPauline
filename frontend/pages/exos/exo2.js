@@ -1,11 +1,11 @@
-$("#exo1").submit(function(event){
+$("#exo2").submit(function(event){
     event.preventDefault();
     var leverid = localStorage.getItem('lastLeverClicked');
     const inputs = document.getElementById("exo1").elements;
     const question1 = inputs["question1"].value;
 
      if (question1 == "dd"){
-        localStorage.setItem('exo1state', true);
+        localStorage.setItem('exo2state', true);
         var data = '{}';  
         $.ajax({type:"PUT",
             url: "http://127.0.0.1:8000/leverroom/" + leverid + "?state=true", 
@@ -23,7 +23,7 @@ $("#exo1").submit(function(event){
     }}); 
      }
      else {
-        localStorage.setItem('exo1state', false);
+        localStorage.setItem('exo2state', false);
      }
      location.href = '../game.html';
 });

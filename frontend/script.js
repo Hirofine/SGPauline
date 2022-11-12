@@ -9,6 +9,7 @@ $("#pseudoform").submit(function(event){
     const pseudo = inputs["pseudo"].value;
     var pid = 0;
     var mid = 0;
+    var ppid = 0;
 
     // GET A PLAYER ID
     $.ajax({url: "http://127.0.0.1:8000/player/newplayerid", async: false, success: function(result){
@@ -20,9 +21,19 @@ $("#pseudoform").submit(function(event){
         console.log("ERROR: ", e);
     }});
 
+    //GET A PLAYERPOS ID
+    $.ajax({url: "http://127.0.0.1:8000/playerpos/newplayerposid", async: false, success: function(result){
+        console.log(result);
+        ppid = result;
+    },
+    error : function(e) {
+        ppid = -1;
+        console.log("ERROR: ", e);
+    }});
+
     // GET A MAP ID
     $.ajax({url: "http://127.0.0.1:8000/map/newmapid", async: false, success: function(result){
-        console.log(result);
+        console.log("playerpos " + result);
         mid = result;
     },
     error : function(e) {
@@ -44,12 +55,32 @@ $("#pseudoform").submit(function(event){
             contentType: "application/json",
             success: function(result){
         console.log(result);
-        pid = result;
+        //pid = result;
     },
     error : function(e) {
         pid = -1;
         console.log("ERROR: ", e);
-    }}); 
+    }});
+
+    var data = '{"id":' + ppid + ', "playerid":' + pid + ', "posx":0, "posy":0 }'; 
+    console.log("before posting player pos");
+    console.log("data " + data);
+    $.ajax({type:"POST",
+            url: "http://127.0.0.1:8000/playerpos/", 
+            async: false, 
+            data: data,
+            dataType: "json",
+            contentType: "application/json",
+            success: function(result){
+        console.log(result);
+        //ppid = result;
+    },
+    error : function(e) {
+        pid = -1;
+        console.log("ERROR: ", e);
+    }});
+
+
     var vxsize = 5;
     var vysize = 5;
     var data = '{"id":' + mid + ', "xsize":' + vxsize + ', "ysize": ' + vysize + ' }';
@@ -61,7 +92,7 @@ $("#pseudoform").submit(function(event){
             contentType: "application/json",
             success: function(result){
         console.log(result);
-        pid = result;
+        //mid = result;
     },
     error : function(e) {
         pid = -1;
@@ -71,6 +102,7 @@ $("#pseudoform").submit(function(event){
     //STORE PLAYER VALUE IN LOCAL STORAGE
     localStorage.setItem('playerid', pid);
     localStorage.setItem('mapid', mid);
+    localStorage.setItem('pplayerposid', ppid);
     localStorage.setItem('pseudo', pseudo);
 
     //REDIRECT TO GAME

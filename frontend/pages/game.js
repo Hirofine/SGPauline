@@ -5,7 +5,8 @@ var leversprite = "../sprites/items/leverup.png";
 var leverposx = 0;
 var leverposy = 0;
 var leverdeltax = 27;
-var leverdeltay = 12;
+var leverdeltay = 35;
+
 
 $(document).ready(function(){
  // dummy file to be implemented (ajax functions)
@@ -46,30 +47,10 @@ $(document).ready(function(){
     console.log(result);
     var li = "<div>";
     for (var i=0;i<xsize;i++){  
-      li += ("<div>"); 
+      li += ("<div id=\"maprow"+ i + "\">"); 
       for (var j=0;j<ysize;j++){ 
-        li += ("<img class=\"room\" src=\"../sprites/rooms/" + result[i*ysize + j].posmod + ".png\" width=\""+ room_size + "\" height=\""+ room_size + "\"></img>"); 
-        if (result[i*ysize+j].leverroom){
-          // DETECT IF LEVERROOM ALREADY SOLVED
-          $.ajax({url: "http://localhost:8000/leverroom/mapid/"+ mapid, success: function(result2){
-            console.log(result2);
-            result2.array.forEach(element => {
-              if (!element.state){
-                var leversprite = "../sprites/items/leverup.png"; //not solved
-              }else{
-                var leversprite = "../sprites/items/leverdown.png"; //solved
-              }
-            });
-          },
-          error : function(e) {
-            $("#mainmap").html("<strong>Error</strong>");
-            console.log("ERROR: ", e);
-          }});
-          leverposx = result.posx * room_size + leverdeltax;
-          leverposy = result.posy * room_size + leverdelaty;
-
-          li+=("<img class=\"player\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposx + "px ;  left: " + leverposy + "px ;\" ></img>");
-        }     
+        li += ("<img class=\"room\" src=\"../sprites/rooms/" + result[i*ysize + j].posmod + ".png\" width=\""+ room_size + "\" height=\""+ room_size + "\" top=\"0\" left=\"0\"></img>"); 
+             
       }
       li += ("</div>"); 
     }
@@ -82,7 +63,39 @@ $(document).ready(function(){
     console.log("ERROR: ", e);
   }}); 
 
-
+ 
+    // DISPLAY LEVER
+    $.ajax({url: "http://localhost:8000/leverroom/mapid/"+ mapid, success: function(result2){
+      console.log(result2);
+      result2.forEach(element => {
+        if (!element.state){
+          var leversprite = "../sprites/items/leverup.png"; //not solved
+          
+        }else{
+          var leversprite = "../sprites/items/leverdown.png"; //solved
+        }
+        leverposx = -((xsize - element.posx) * room_size) + leverdeltax;
+        leverposy = - leverdeltay;
+        $("#maprow" + element.posy).append("<img class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px ;\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
+      });
+    },
+    error : function(e) {
+      $("#mainmap").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }});
+    // GET PLAYER POSITION
+    ppid = localStorage.getItem('playerposid');
+    $.ajax({url: "http://localhost:8000/playerpos/" + ppid , async: false, success: function(result){
+      playerposition[0] = result[0].posx;
+      playerposition[1] = result[0].posy; 
+      console.log("ppid : " + ppid + " playerpos: " + playerposition[0]);
+      console.log(result); 
+    },
+    error : function(e) {
+      $("#div1").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }});
+    
   // ADD PLAYER SPRITE
   console.log("adding player sprite");
   
@@ -100,9 +113,66 @@ $(document).ready(function(){
   }});
 });
 });
-function onleverclick(){
-  console.log("le levier a ete clique");
 
+function onleverclick(state, id){
+  console.log("le levier a ete clique");
+  localStorage.setItem('lastLeverClicked', id);
+  //DETERMINER SI PLAYER ASSEZ PROCHE (plus tard)
+
+  //DETERMINER SI LEVIER CLICKABLE (aka exo non resolu)
+  if (!state){
+    //STOCKER POS PLAYER
+    var data = '{"id":' + ppid + ', "playerid":' + localStorage.getItem('playerid') + ', "posx":' + playerposition[0] + ' , "posy":' + playerposition[1] + '}'; 
+    console.log()
+    $.ajax({type:"PUT",
+            url: "http://127.0.0.1:8000/playerpos/" + ppid, 
+            async: false, 
+            data: data,
+            dataType: "json",
+            contentType: "application/json",
+            success: function(result){
+        console.log(result);
+        pid = result;
+    },
+    error : function(e) {
+        pid = -1;
+        console.log("ERROR: ", e);
+    }}); 
+  //DETERMINER QUEL EXO LANCER
+  var exo1 = localStorage.getItem('exo1state');
+  var exo2 = localStorage.getItem('exo2state');
+  var exo3 = localStorage.getItem('exo3state');
+  var exo4 = localStorage.getItem('exo4state');
+  var exo5 = localStorage.getItem('exo5state');
+
+  var loc = "";
+  if(!exo1){
+    loc = './exos/exo1.html';
+  }else{
+    if (!exo2){
+      loc = './exos/exo2.html';
+    }else{
+      if (!exo3){
+        loc = './exos/exo3.html';
+      }else{
+        if(!exo4){
+          loc = './exos/exo4.html';
+        }else{
+          if(!exo5){
+            loc = './exos/exo5.html';
+          }else{
+            //all lever are already activated
+          }
+        }
+      }
+    }
+  }
+
+
+  //LANCER L'EXO
+  location.href = loc;
+  }
+  
 };
 
 
