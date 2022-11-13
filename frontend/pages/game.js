@@ -1,4 +1,5 @@
 var playerposition = [0,0];
+var playhitboxcorr = 7; 
 var step = 0;
 var playsprite = "../sprites/player/player.png";
 var playsprite_size = [0,0];
@@ -26,7 +27,7 @@ $(document).ready(function(){
 
 
   //GET MAP FROM API
-  $.ajax({url: "http://localhost:8000/map/" + mapid, async: false, success: function(result){
+  $.ajax({url: "http://83.194.254.189:8000/map/" + mapid, async: false, success: function(result){
     xsize = result.xsize;
     ysize = result.ysize; 
     console.log(result); 
@@ -47,7 +48,7 @@ $(document).ready(function(){
   }
   //GET ROOMS FROM API AND DISPLAY THEM
   console.log("room size : " + room_size);
-  $.ajax({url: "http://localhost:8000/room/mapid/"+ mapid, success: function(result){
+  $.ajax({url: "http://83.194.254.189:8000/room/mapid/"+ mapid, success: function(result){
     console.log(result);
     var li = "<div>";
     for (var i=0;i<xsize;i++){  
@@ -69,7 +70,7 @@ $(document).ready(function(){
 
  
     // DISPLAY LEVER
-    $.ajax({url: "http://localhost:8000/leverroom/mapid/"+ mapid, success: function(result2){
+    $.ajax({url: "http://83.194.254.189:8000/leverroom/mapid/"+ mapid, success: function(result2){
       console.log(result2);
       result2.forEach(element => {
         if (!element.state){
@@ -89,7 +90,7 @@ $(document).ready(function(){
     }});
     // GET PLAYER POSITION
     ppid = localStorage.getItem('playerposid');
-    $.ajax({url: "http://localhost:8000/playerpos/" + ppid , async: false, success: function(result){
+    $.ajax({url: "http://83.194.254.189:8000/playerpos/" + ppid , async: false, success: function(result){
       playerposition[0] = result[0].posx;
       playerposition[1] = result[0].posy; 
       console.log("ppid : " + ppid + " playerpos: " + playerposition[0]);
@@ -108,7 +109,7 @@ $(document).ready(function(){
   
 
  $("button").click(function(){
-  $.ajax({url: "http://127.0.0.1:8000/", success: function(result){
+  $.ajax({url: "http://83.194.254.189:8000/", success: function(result){
     $("#map").html(result);
   },
   error : function(e) {
@@ -129,7 +130,7 @@ function onleverclick(state, id){
     var data = '{"id":' + ppid + ', "playerid":' + localStorage.getItem('playerid') + ', "posx":' + playerposition[0] + ' , "posy":' + playerposition[1] + '}'; 
     console.log()
     $.ajax({type:"PUT",
-            url: "http://127.0.0.1:8000/playerpos/" + ppid, 
+            url: "http://83.194.254.189:8000/playerpos/" + ppid, 
             async: false, 
             data: data,
             dataType: "json",

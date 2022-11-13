@@ -13,7 +13,7 @@ $("#pseudoform").submit(function(event){
 
 
     // GET A PLAYER ID
-    $.ajax({url: "http://127.0.0.1:8000/player/newplayerid", async: false, success: function(result){
+    $.ajax({url: "http://83.194.254.189:8000/player/newplayerid", async: false, success: function(result){
         console.log(result);
         pid = result;
     },
@@ -23,7 +23,7 @@ $("#pseudoform").submit(function(event){
     }});
 
     //GET A PLAYERPOS ID
-    $.ajax({url: "http://127.0.0.1:8000/playerpos/newplayerposid", async: false, success: function(result){
+    $.ajax({url: "http://83.194.254.189:8000/playerpos/newplayerposid", async: false, success: function(result){
         console.log(result);
         ppid = result;
     },
@@ -33,7 +33,7 @@ $("#pseudoform").submit(function(event){
     }});
 
     // GET A MAP ID
-    $.ajax({url: "http://127.0.0.1:8000/map/newmapid", async: false, success: function(result){
+    $.ajax({url: "http://83.194.254.189:8000/map/newmapid", async: false, success: function(result){
         console.log("playerpos " + result);
         mid = result;
     },
@@ -49,7 +49,7 @@ $("#pseudoform").submit(function(event){
     //var data = [{"id": 5,                "mapid": 5,                "pseudo": "BRUHHH"                }];           
                 
     $.ajax({type:"POST",
-            url: "http://127.0.0.1:8000/player/", 
+            url: "http://83.194.254.189:8000/player/", 
             async: false, 
             data: data,
             dataType: "json",
@@ -67,7 +67,7 @@ $("#pseudoform").submit(function(event){
     console.log("before posting player pos");
     console.log("data " + data);
     $.ajax({type:"POST",
-            url: "http://127.0.0.1:8000/playerpos/", 
+            url: "http://83.194.254.189:8000/playerpos/", 
             async: false, 
             data: data,
             dataType: "json",
@@ -86,7 +86,7 @@ $("#pseudoform").submit(function(event){
     var vysize = 5;
     var data = '{"id":' + mid + ', "xsize":' + vxsize + ', "ysize": ' + vysize + ' }';
     $.ajax({type:"POST",
-            url: "http://127.0.0.1:8000/map/", 
+            url: "http://83.194.254.189:8000/map/", 
             async: false, 
             data: data,
             dataType: "json",

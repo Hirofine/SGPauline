@@ -1,2 +1,2 @@
 cd backend
-uvicorn index:app --host 192.168.1.11 --reload
+uvicorn index:app --host 0.0.0.0 --reload

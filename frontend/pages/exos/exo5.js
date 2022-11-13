@@ -8,7 +8,7 @@ $("#exo5").submit(function(event){
         localStorage.setItem('exo5state', true);
         var data = '{}';  
         $.ajax({type:"PUT",
-            url: "http://127.0.0.1:8000/leverroom/" + leverid + "?state=true", 
+            url: "http://83.194.254.189:8000/leverroom/" + leverid + "?state=true", 
             async: false, 
             data: data,
             dataType: "json",
