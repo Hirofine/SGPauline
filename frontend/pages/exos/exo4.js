@@ -1,9 +1,9 @@
 $("#exo4").submit(function(event){
     event.preventDefault();
     var leverid = localStorage.getItem('lastLeverClicked');
-    const inputs = document.getElementById("exo1").elements;
+    const inputs = document.getElementById("exo4").elements;
     const question1 = inputs["question1"].value;
-
+    console.log("exo4");
      if (question1 == "dd"){
         localStorage.setItem('exo4state', true);
         var data = '{}';  

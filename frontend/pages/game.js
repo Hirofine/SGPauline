@@ -128,6 +128,7 @@ function onleverclick(state, id){
   if (!state){
     //STOCKER POS PLAYER
     var data = '{"id":' + ppid + ', "playerid":' + localStorage.getItem('playerid') + ', "posx":' + playerposition[0] + ' , "posy":' + playerposition[1] + '}'; 
+    console.log("data before posting ppos" + data);
     console.log()
     $.ajax({type:"PUT",
             url: "http://83.194.254.189:8000/playerpos/" + ppid, 

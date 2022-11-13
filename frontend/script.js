@@ -103,7 +103,7 @@ $("#pseudoform").submit(function(event){
     //STORE PLAYER VALUE IN LOCAL STORAGE AND CLEAN FROM POTENTIAL PREVIOUS GAMES
     localStorage.setItem('playerid', pid);
     localStorage.setItem('mapid', mid);
-    localStorage.setItem('pplayerposid', ppid);
+    localStorage.setItem('playerposid', ppid);
     localStorage.setItem('pseudo', pseudo);
     localStorage.setItem('exo1state', false);
     localStorage.setItem('exo2state', false);
