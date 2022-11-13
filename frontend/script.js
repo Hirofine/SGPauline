@@ -11,6 +11,7 @@ $("#pseudoform").submit(function(event){
     var mid = 0;
     var ppid = 0;
 
+
     // GET A PLAYER ID
     $.ajax({url: "http://127.0.0.1:8000/player/newplayerid", async: false, success: function(result){
         console.log(result);
@@ -99,11 +100,16 @@ $("#pseudoform").submit(function(event){
         console.log("ERROR: ", e);
     }});
 
-    //STORE PLAYER VALUE IN LOCAL STORAGE
+    //STORE PLAYER VALUE IN LOCAL STORAGE AND CLEAN FROM POTENTIAL PREVIOUS GAMES
     localStorage.setItem('playerid', pid);
     localStorage.setItem('mapid', mid);
     localStorage.setItem('pplayerposid', ppid);
     localStorage.setItem('pseudo', pseudo);
+    localStorage.setItem('exo1state', false);
+    localStorage.setItem('exo2state', false);
+    localStorage.setItem('exo3state', false);
+    localStorage.setItem('exo4state', false);
+    localStorage.setItem('exo5state', false);
 
     //REDIRECT TO GAME
     location.href = './pages/game.html';

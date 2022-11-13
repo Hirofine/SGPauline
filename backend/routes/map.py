@@ -55,10 +55,10 @@ async def write_data(map: Map):
             
             tmpleverroom = False
             #Creation des salles levier roomid: 6
-            if(i*map.ysize + j == 6 or i*map.ysize + j == 2):
+            if(i*map.ysize + j == 2 or i*map.ysize + j == 6 or i*map.ysize + j == 15 or i*map.ysize + j == 19 or i*map.ysize + j == 23):
                 tmpleverroom = True
                 conn.execute(leverrooms.insert().values(
-                    id = map.id,
+                    id = i*map.ysize + j,
                     mapid = map.id,
                     roomid = i*map.ysize + j,
                     posx = i,

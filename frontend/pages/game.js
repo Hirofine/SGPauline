@@ -1,11 +1,13 @@
 var playerposition = [0,0];
-var step = 10;
-var playsprite = "../sprites/player/player.jpeg";
+var step = 0;
+var playsprite = "../sprites/player/player.png";
+var playsprite_size = [0,0];
 var leversprite = "../sprites/items/leverup.png";
 var leverposx = 0;
 var leverposy = 0;
 var leverdeltax = 27;
 var leverdeltay = 35;
+var room_size = 0;
 
 
 $(document).ready(function(){
@@ -36,7 +38,9 @@ $(document).ready(function(){
 
   //PROCESS ROOM SIZE ON SCREEN
   if( xsize != 0){
-    var room_size = Math.round((window.innerWidth - (2*(margin/100)) * window.innerWidth) * (1/xsize));
+    room_size = Math.round((window.innerWidth - (2*(margin/100)) * window.innerWidth) * (1/xsize));
+    playsprite_size = [Math.round(room_size/8), Math.round(room_size/8)]
+    step = Math.round(room_size / 32);
     
   }else{
     room_size=64;
@@ -99,7 +103,7 @@ $(document).ready(function(){
   // ADD PLAYER SPRITE
   console.log("adding player sprite");
   
-  $("#player").html("<img class=\"player\" src=\"" + playsprite +"\" width=\"75\" height=\"75\" id=\"player\" style=\"top: " + playerposition[0] + "px ;  left: " + playerposition[1] + "px ;\" ></img>")
+  $("#player").html("<img class=\"player\" src=\"" + playsprite +"\" width=\"" + playsprite_size[0] + "\" height=\"" + playsprite_size[1] + "\" id=\"player\" style=\"top: " + playerposition[0] + "px ;  left: " + playerposition[1] + "px ;\" ></img>")
 
   
 
@@ -146,19 +150,19 @@ function onleverclick(state, id){
   var exo5 = localStorage.getItem('exo5state');
 
   var loc = "";
-  if(!exo1){
+  if(exo1 == 'false'){
     loc = './exos/exo1.html';
   }else{
-    if (!exo2){
+    if (exo2 == 'false'){
       loc = './exos/exo2.html';
     }else{
-      if (!exo3){
+      if (exo3 == 'false'){
         loc = './exos/exo3.html';
       }else{
-        if(!exo4){
+        if(exo4 == 'false'){
           loc = './exos/exo4.html';
         }else{
-          if(!exo5){
+          if(exo5 == 'false'){
             loc = './exos/exo5.html';
           }else{
             //all lever are already activated
@@ -177,32 +181,139 @@ function onleverclick(state, id){
 
 
 document.onkeydown = function(e) {
-  
-  switch(e.which) {
-      case 37: // left
-        playerposition[0] -= step;
-      break;
+var pposroomx = playerposition[0]% room_size;
+var pposroomy = playerposition[1]% room_size;
+var door_ratio = 0.1875;
+var door_size = Math.round(room_size * door_ratio);
+var wall_ratio = 0.078125;
+var wall_size = Math.round(room_size * wall_ratio);
+switch(e.which) {
+  case 37: // left
+    if (playerposition[0] - step < wall_size){ //map border
+      playerposition[0] = wall_size;
+    }else{ 
+      if((pposroomx - step < wall_size)){ //left wall of room
+        console.log("left_wall");
+        if((pposroomy < (room_size - door_size)/2) || (pposroomy > (room_size - door_size) / 2 + door_size - playsprite_size[1])  ){ //not the door
+          console.log("y a un mur");
+          playerposition[0] = playerposition[0] - (pposroomx - wall_size);
+        }else{           
+          //the door
+          console.log("y a une porte");
+          playerposition[0] -= step;
+        }
+      }else{
+        if(pposroomy < wall_size || pposroomy > room_size - wall_size - playsprite_size[1]){ // inside the wall door (top/bottom door)
+            if(pposroomx - step < Math.round((room_size - door_size)/2)){
+              playerposition[0] = playerposition[0] - (pposroomx - Math.round((room_size - door_size)/2));
+            }else{
+              playerposition[0] -= step;
+            }
+        }else{
+          console.log("all clear")
+          playerposition[0] -= step; //move classic
+        }
+      }
+    }
+    break;
 
-      case 38: // up
-        playerposition[1] -= step;
-      break;
+    case 38: // up
+    if (playerposition[1] - step < wall_size){ //map border
+      playerposition[1] = wall_size;
+    }else{ 
+      if((pposroomy - step < wall_size)){ //top wall of room
+        console.log("top_wall");
+        if((pposroomx < Math.round((room_size - door_size)/2)) || (pposroomx > Math.round((room_size - door_size) / 2) + door_size - playsprite_size[0]) ){ //not the door
+          console.log("y a un mur");
+          playerposition[1] = playerposition[1] - (pposroomy - wall_size);
+        }else{           
+          //the door
+          console.log("y a une porte");
+          playerposition[1] -= step;
+        }
+      }else{
+        if(pposroomx < wall_size || pposroomx > room_size - wall_size - playsprite_size[0]){ // inside the wall door (left/right door)
+            if(pposroomy - step < Math.round((room_size - door_size)/2)){
+              playerposition[1] = playerposition[1] - Math.round(pposroomy - (room_size - door_size)/2);
+            }else{
+              playerposition[1] -= step;
+            }
+        }else{
+          console.log("all clear")
+          playerposition[1] -= step; //move classic
+        }
+      }
+    }
+    break;
 
-      case 39: // right
-        playerposition[0] += step;
-      break;
+    case 39: // right
+    if (playerposition[0] + step > (5 * room_size - playsprite_size[0] - wall_size)){ //map border
+      playerposition[0] = 5 * room_size - playsprite_size[0] - wall_size;
+    }else{ 
+      if((pposroomx + step > room_size - wall_size - playsprite_size[0])){ //right wall of room
+        console.log("right_wall");
+        if((pposroomy < Math.round((room_size - door_size)/2)) || (pposroomy + playsprite_size[1] > Math.round((room_size - door_size) / 2) + door_size)){ //not the door
+          console.log("y a un mur (right)");
+          playerposition[0] = playerposition[0] + (room_size - pposroomx - wall_size - playsprite_size[0]);
+        }else{           
+          //the door
+          console.log("y a une porte");
+          playerposition[0] += step;
+        }
+      }else{
+        if(pposroomy < wall_size || pposroomy > room_size - wall_size - playsprite_size[1]){ // inside the wall door (top/bottom door)
+            if(pposroomx + step > Math.round((room_size - door_size)/2) + door_size - playsprite_size[1]){
+              playerposition[0] = playerposition[0] + ((Math.round((room_size - door_size)/2) + door_size - playsprite_size[0])) - pposroomx;
+            }else{
+              playerposition[0] += step;
+            }
+        }else{
+          console.log("all clear")
+          playerposition[0] += step; //move classic
+        }
+      }
+    }
 
-      case 40: // down
-        playerposition[1] += step;
-      break;
+    break;
 
-      
-      default: return; // exit this handler for other keys
-  }
-  console.log("x: " + playerposition[0] + ", y: " + playerposition[1]);
-  $("#player").html("<img class=\"player\" src=\"" + playsprite +"\" width=\"75\" height=\"75\" id=\"player\" style=\"top: " + playerposition[1] + "px ;  left: " + playerposition[0] + "px ;\" ></img>")
+    case 40: // down
+    if (playerposition[1] + step > (5 * room_size - playsprite_size[1] - wall_size)){ //map border
+      playerposition[1] = 5 * room_size - playsprite_size[1] - wall_size;
+    }else{ 
+      if((pposroomy + step > room_size - wall_size - playsprite_size[1])){ //right wall of room
+        console.log("bot_wall");
+        if((pposroomx < Math.round((room_size - door_size)/2)) || (pposroomx + playsprite_size[0] > Math.round((room_size - door_size) / 2) + door_size)){ //not the door
+          console.log("y a un mur (right)");
+          playerposition[1] = playerposition[1] + (room_size - pposroomy - wall_size - playsprite_size[1]);
+        }else{           
+          //the door
+          console.log("y a une porte");
+          playerposition[1] += step;
+        }
+      }else{
+        if(pposroomx < wall_size || pposroomx > room_size - wall_size - playsprite_size[0]){ // inside the wall door (top/bottom door)
+            if(pposroomy + step > Math.round((room_size - door_size)/2) + door_size - playsprite_size[0]){
+              playerposition[1] = playerposition[1] + ((Math.round((room_size - door_size)/2) + door_size - playsprite_size[1])) - pposroomy;
+            }else{
+              playerposition[1] += step;
+            }
+        }else{
+          console.log("all clear")
+          playerposition[1] += step; //move classic
+        }
+      }
+    }
+    break;
 
-  e.preventDefault(); // prevent the default action (scroll / move caret)
+    
+    default: return; // exit this handler for other keys
+}
+console.log("x: " + playerposition[0] + ", y: " + playerposition[1]);
+$("#player").html("<img class=\"player\" src=\"" + playsprite +"\" width=\"" + playsprite_size[0] + "\" height=\"" + playsprite_size[1] + "\" id=\"player\" style=\"top: " + realplayerpos(playerposition)[1] + "px ;  left: " + realplayerpos(playerposition)[0] + "px ;\" ></img>")
+
+e.preventDefault(); // prevent the default action (scroll / move caret)
 };
+
 var xTriggered = 0;
 $(document).keypress(function( event ) {
   if ( event.which == 13 ) {
@@ -213,3 +324,20 @@ $(document).keypress(function( event ) {
   console.log( msg, "html" );
   console.log( event );
 });
+
+function realplayerpos(position){
+  var playerpos = [0,0]
+  //fix pos 0,0
+  playerpos[0] = 0; //x nothing to change
+  playerpos[1] = -(5 * room_size); //y must up by mapsize *  nroomy
+
+
+
+  //adapt to player pos
+
+  playerpos[0] += position[0];
+  playerpos[1] += position[1];
+
+  //return position
+  return playerpos
+};
