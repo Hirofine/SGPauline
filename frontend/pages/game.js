@@ -9,12 +9,18 @@ var leverposy = 0;
 var leverdeltax = 27;
 var leverdeltay = 35;
 var room_size = 0;
+var xsize = 5;
+var ysize = 5;
+var room_founded = [[false,false,false,false,false],
+                    [false,false,false,false,false],
+                    [false,false,false,false,false],
+                    [false,false,false,false,false],
+                    [false,false,false,false,false]];
 
 
 $(document).ready(function(){
  // dummy file to be implemented (ajax functions)
-  var xsize = 5;
-  var ysize = 5;
+
   var mapid = localStorage.getItem('mapid');
   var playerid = 0;
   var winwidth = window.innerWidth;
@@ -48,14 +54,17 @@ $(document).ready(function(){
   }
   //GET ROOMS FROM API AND DISPLAY THEM
   console.log("room size : " + room_size);
+  var maproom = "";
   $.ajax({url: "http://83.194.254.189:8000/room/mapid/"+ mapid, success: function(result){
     console.log(result);
     var li = "<div>";
     for (var i=0;i<xsize;i++){  
       li += ("<div id=\"maprow"+ i + "\">"); 
       for (var j=0;j<ysize;j++){ 
-        li += ("<img class=\"room\" src=\"../sprites/rooms/" + result[i*ysize + j].posmod + ".png\" width=\""+ room_size + "\" height=\""+ room_size + "\" top=\"0\" left=\"0\"></img>"); 
-             
+        maproom = "maproom" + (i*ysize + j);
+        opacity = ((result[i*ysize+j].isfound)? 1.0 : 0.0);
+        li += ("<img id=\"" + maproom + "\" class=\"room\" src=\"../sprites/rooms/" + result[i*ysize + j].posmod + ".png\" width=\""+ room_size + "\" height=\""+ room_size + "\" top=\"0\" left=\"0\" style=\"opacity:" + opacity + "\"></img>"); 
+        room_founded[i][j] = result[i*ysize+j].isfound;     
       }
       li += ("</div>"); 
     }
@@ -122,6 +131,7 @@ $(document).ready(function(){
 function onleverclick(state, id){
   console.log("le levier a ete clique");
   localStorage.setItem('lastLeverClicked', id);
+  var mapid= localStorage.getItem("mapid");
   //DETERMINER SI PLAYER ASSEZ PROCHE (plus tard)
 
   //DETERMINER SI LEVIER CLICKABLE (aka exo non resolu)
@@ -144,6 +154,32 @@ function onleverclick(state, id){
         pid = -1;
         console.log("ERROR: ", e);
     }}); 
+
+    //STOCKER ETAT DES SALLES
+    for (var i=0;i<xsize;i++){
+      for(var j=0;j<ysize;j++){
+        room_id = i*ysize + j;
+        data = '{}'; 
+        console.log("data before posting ppos" + data);
+        console.log()
+        $.ajax({type:"PUT",
+                url: "http://83.194.254.189:8000/room/" + room_id + "?isfound=" + room_founded[i][j] + "&mapid=" + mapid, 
+                async: false, 
+                data: data,
+                dataType: "json",
+                contentType: "application/json",
+                success: function(result){
+            console.log(result);
+            pid = result;
+        },
+        error : function(e) {
+            pid = -1;
+            console.log("ERROR: ", e);
+        }}); 
+      }
+    }
+    
+
   //DETERMINER QUEL EXO LANCER
   var exo1 = localStorage.getItem('exo1state');
   var exo2 = localStorage.getItem('exo2state');
@@ -185,10 +221,15 @@ function onleverclick(state, id){
 document.onkeydown = function(e) {
 var pposroomx = playerposition[0]% room_size;
 var pposroomy = playerposition[1]% room_size;
+var proomy = Math.floor(playerposition[0] / room_size);
+var proomx = Math.floor(playerposition[1] / room_size);
 var door_ratio = 0.1875;
 var door_size = Math.round(room_size * door_ratio);
 var wall_ratio = 0.078125;
 var wall_size = Math.round(room_size * wall_ratio);
+room_founded[proomx][proomy] = true;
+var actualroomid = "maproom" + (proomx*ysize + proomy);
+document.getElementById(actualroomid).style.opacity = 1;
 switch(e.which) {
   case 37: // left
     if (playerposition[0] - step < wall_size){ //map border
@@ -310,11 +351,13 @@ switch(e.which) {
     
     default: return; // exit this handler for other keys
 }
+
 console.log("x: " + playerposition[0] + ", y: " + playerposition[1]);
 $("#player").html("<img class=\"player\" src=\"" + playsprite +"\" width=\"" + playsprite_size[0] + "\" height=\"" + playsprite_size[1] + "\" id=\"player\" style=\"top: " + realplayerpos(playerposition)[1] + "px ;  left: " + realplayerpos(playerposition)[0] + "px ;\" ></img>")
 
 e.preventDefault(); // prevent the default action (scroll / move caret)
 };
+
 
 var xTriggered = 0;
 $(document).keypress(function( event ) {
@@ -343,3 +386,8 @@ function realplayerpos(position){
   //return position
   return playerpos
 };
+
+
+function refresh_map(){
+  console.log("refresh_map");
+}

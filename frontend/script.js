@@ -11,6 +11,7 @@ $("#pseudoform").submit(function(event){
     var mid = 0;
     var ppid = 0;
 
+    //get the mapid of the filled player if existing (-1) si pas de map crée pour ce pseudo
 
     // GET A PLAYER ID
     $.ajax({url: "http://83.194.254.189:8000/player/newplayerid", async: false, success: function(result){
