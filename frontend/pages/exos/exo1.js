@@ -1,4 +1,6 @@
 var nb_sub;
+//var api_url = "http://83.194.254.189:8000";
+var api_url = "http://localhost:8000";
 $(document).ready(function(){
 nb_sub = 0;
 console.log("document.ready");
@@ -143,7 +145,7 @@ if (pass){
 localStorage.setItem('exo1state', true);
 var data = '{}';  
 $.ajax({type:"PUT",
-    url: "http://83.194.254.189:8000/leverroom/" + leverid + "?state=true", 
+    url: api_url + "/leverroom/" + leverid + "?state=true", 
     async: false, 
     data: data,
     dataType: "json",

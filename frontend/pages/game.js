@@ -1,3 +1,6 @@
+//var api_url = "http://83.194.254.189:8000";
+var api_url = "http://localhost:8000";
+
 var playerposition = [0,0];
 var playhitboxcorr = 7; 
 var step = 0;
@@ -33,7 +36,7 @@ $(document).ready(function(){
 
 
   //GET MAP FROM API
-  $.ajax({url: "http://83.194.254.189:8000/map/" + mapid, async: false, success: function(result){
+  $.ajax({url: api_url + "/map/" + mapid, async: false, success: function(result){
     xsize = result.xsize;
     ysize = result.ysize; 
     console.log(result); 
@@ -55,7 +58,7 @@ $(document).ready(function(){
   //GET ROOMS FROM API AND DISPLAY THEM
   console.log("room size : " + room_size);
   var maproom = "";
-  $.ajax({url: "http://83.194.254.189:8000/room/mapid/"+ mapid, success: function(result){
+  $.ajax({url: api_url + "/room/mapid/"+ mapid, success: function(result){
     console.log(result);
     var li = "<div>";
     for (var i=0;i<xsize;i++){  
@@ -79,7 +82,7 @@ $(document).ready(function(){
 
  
     // DISPLAY LEVER
-    $.ajax({url: "http://83.194.254.189:8000/leverroom/mapid/"+ mapid, success: function(result2){
+    $.ajax({url: api_url + "/leverroom/mapid/"+ mapid, success: function(result2){
       console.log(result2);
       result2.forEach(element => {
         if (!element.state){
@@ -90,7 +93,7 @@ $(document).ready(function(){
         }
         leverposx = -((xsize - element.posx) * room_size) + leverdeltax;
         leverposy = - leverdeltay;
-        $("#maprow" + element.posy).append("<img class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px ;\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
+        $("#maprow" + element.posy).append("<img id=\"lever"+ element.id + "\" class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px ;\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
       });
     },
     error : function(e) {
@@ -99,7 +102,7 @@ $(document).ready(function(){
     }});
     // GET PLAYER POSITION
     ppid = localStorage.getItem('playerposid');
-    $.ajax({url: "http://83.194.254.189:8000/playerpos/" + ppid , async: false, success: function(result){
+    $.ajax({url: api_url + "/playerpos/" + ppid , async: false, success: function(result){
       playerposition[0] = result[0].posx;
       playerposition[1] = result[0].posy; 
       console.log("ppid : " + ppid + " playerpos: " + playerposition[0]);
@@ -118,7 +121,7 @@ $(document).ready(function(){
   
 
  $("button").click(function(){
-  $.ajax({url: "http://83.194.254.189:8000/", success: function(result){
+  $.ajax({url: api_url + "/", success: function(result){
     $("#map").html(result);
   },
   error : function(e) {
@@ -134,6 +137,19 @@ function onleverclick(state, id){
   var mapid= localStorage.getItem("mapid");
   //DETERMINER SI PLAYER ASSEZ PROCHE (plus tard)
 
+  var distance_max = Math.round(room_size/10);
+  var lever = document.getElementById("lever" + id);
+  var poslevx = lever.getBoundingClientRect().left;
+  var poslevy = lever.getBoundingClientRect().top;
+  var first_room = document.getElementById("maproom0");
+  var top_offset = first_room.getBoundingClientRect().top;
+  var left_offset = first_room.getBoundingClientRect().left;
+  console.log("x : " + poslevx + ", y : " + poslevy);
+
+
+  if(Math.abs(playerposition[0] - (poslevx - left_offset)) <= distance_max && Math.abs(playerposition[1] - (poslevy - top_offset)) < distance_max){
+    console.log("close enough");
+  
   //DETERMINER SI LEVIER CLICKABLE (aka exo non resolu)
   if (!state){
     //STOCKER POS PLAYER
@@ -141,7 +157,7 @@ function onleverclick(state, id){
     console.log("data before posting ppos" + data);
     console.log()
     $.ajax({type:"PUT",
-            url: "http://83.194.254.189:8000/playerpos/" + ppid, 
+            url: api_url+ "/playerpos/" + ppid, 
             async: false, 
             data: data,
             dataType: "json",
@@ -163,7 +179,7 @@ function onleverclick(state, id){
         console.log("data before posting ppos" + data);
         console.log()
         $.ajax({type:"PUT",
-                url: "http://83.194.254.189:8000/room/" + room_id + "?isfound=" + room_founded[i][j] + "&mapid=" + mapid, 
+                url: api_url + "/room/" + room_id + "?isfound=" + room_founded[i][j] + "&mapid=" + mapid, 
                 async: false, 
                 data: data,
                 dataType: "json",
@@ -212,9 +228,9 @@ function onleverclick(state, id){
 
 
   //LANCER L'EXO
-  location.href = loc;
+  //location.href = loc;
   }
-  
+}
 };
 
 

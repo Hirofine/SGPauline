@@ -1,3 +1,5 @@
+//var api_url = "http://83.194.254.189:8000";
+var api_url = "http://localhost:8000";
 $(document).ready(function(){
 
     
@@ -14,7 +16,7 @@ $("#pseudoform").submit(function(event){
     //get the mapid of the filled player if existing (-1) si pas de map crée pour ce pseudo
 
     // GET A PLAYER ID
-    $.ajax({url: "http://83.194.254.189:8000/player/newplayerid", async: false, success: function(result){
+    $.ajax({url: api_url  + "/player/newplayerid", async: false, success: function(result){
         console.log(result);
         pid = result;
     },
@@ -24,7 +26,7 @@ $("#pseudoform").submit(function(event){
     }});
 
     //GET A PLAYERPOS ID
-    $.ajax({url: "http://83.194.254.189:8000/playerpos/newplayerposid", async: false, success: function(result){
+    $.ajax({url: api_url + "/playerpos/newplayerposid", async: false, success: function(result){
         console.log(result);
         ppid = result;
     },
@@ -34,7 +36,7 @@ $("#pseudoform").submit(function(event){
     }});
 
     // GET A MAP ID
-    $.ajax({url: "http://83.194.254.189:8000/map/newmapid", async: false, success: function(result){
+    $.ajax({url: api_url + "/map/newmapid", async: false, success: function(result){
         console.log("playerpos " + result);
         mid = result;
     },
@@ -50,7 +52,7 @@ $("#pseudoform").submit(function(event){
     //var data = [{"id": 5,                "mapid": 5,                "pseudo": "BRUHHH"                }];           
                 
     $.ajax({type:"POST",
-            url: "http://83.194.254.189:8000/player/", 
+            url: api_url + "/player/", 
             async: false, 
             data: data,
             dataType: "json",
@@ -68,7 +70,7 @@ $("#pseudoform").submit(function(event){
     console.log("before posting player pos");
     console.log("data " + data);
     $.ajax({type:"POST",
-            url: "http://83.194.254.189:8000/playerpos/", 
+            url: api_url + "/playerpos/", 
             async: false, 
             data: data,
             dataType: "json",
@@ -87,7 +89,7 @@ $("#pseudoform").submit(function(event){
     var vysize = 5;
     var data = '{"id":' + mid + ', "xsize":' + vxsize + ', "ysize": ' + vysize + ' }';
     $.ajax({type:"POST",
-            url: "http://83.194.254.189:8000/map/", 
+            url: api_url + "/map/", 
             async: false, 
             data: data,
             dataType: "json",
