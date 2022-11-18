@@ -61,8 +61,8 @@ async def write_data(map: Map):
                     id = i*map.ysize + j,
                     mapid = map.id,
                     roomid = i*map.ysize + j,
-                    posx = i,
-                    posy = j,   
+                    posx = j,
+                    posy = i,   
                     state = False,
                     exo = "exo"
                 ))
@@ -70,8 +70,8 @@ async def write_data(map: Map):
             conn.execute(rooms.insert().values(
                 id = i*map.ysize + j,
                 mapid = map.id,
-                posx = i,
-                posy = j,                
+                posx = j,
+                posy = i,                
                 posmod = tmpposmod,    
                 trapped = False,
                 bonus = False,

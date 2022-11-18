@@ -89,11 +89,11 @@ $(document).ready(function(){
           var leversprite = "../sprites/items/leverup.png"; //not solved
           
         }else{
-          var leversprite = "../sprites/items/leverdown.png"; //solved
+          var leversprite = "../spritys/items/leverdown.png"; //solved
         }
         leverposx = -((xsize - element.posx) * room_size) + leverdeltax;
         leverposy = - leverdeltay;
-        $("#maprow" + element.posy).append("<img id=\"lever"+ element.id + "\" class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px ;\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
+        $("#maprow" + element.posy).append("<img id=\"lever"+ element.id + "\" class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px; opacity:0;\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
       });
     },
     error : function(e) {
@@ -228,7 +228,7 @@ function onleverclick(state, id){
 
 
   //LANCER L'EXO
-  //location.href = loc;
+  location.href = loc;
   }
 }
 };
@@ -246,6 +246,14 @@ var wall_size = Math.round(room_size * wall_ratio);
 room_founded[proomx][proomy] = true;
 var actualroomid = "maproom" + (proomx*ysize + proomy);
 document.getElementById(actualroomid).style.opacity = 1;
+var leverid = "lever" + (proomx*ysize + proomy);
+var lever = document.getElementById(leverid);
+console.log("refresh lever id: " + leverid);
+if (lever != null){
+  console.log("il existe un levier");
+  lever.style.opacity = 1;
+}
+
 switch(e.which) {
   case 37: // left
     if (playerposition[0] - step < wall_size){ //map border
