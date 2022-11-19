@@ -1,0 +1,25 @@
+SEQ1:
+	EXO1:
+	EXO2:
+	EXO3:
+	
+SEQ2:
+	EXO1:
+	EXO2:
+	EXO3:
+	
+SEQ3:
+	EXO1:
+	EXO2:
+	EXO3:
+	
+SEQ4:
+	EXO1:
+	EXO2:
+	EXO3:
+	
+SEQ5:
+	EXO1:
+	EXO2:
+	EXO3:
+	
