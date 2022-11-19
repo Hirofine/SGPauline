@@ -39,8 +39,8 @@ var info = document.createElement("p");
 info.setAttribute('id','exo1info1');
 info.setAttribute('class','info');
 info.appendChild(document.createTextNode("Aide"));
-info.setAttribute('onmouseover', 'display_help(this)');
-info.setAttribute('onmouseout', 'hide_help(this)');
+info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 1";');
+info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
 question1.appendChild(info);
 question1.appendChild(document.createElement("br"));
 question1.appendChild(document.createElement("input"));
@@ -50,6 +50,13 @@ questions.appendChild(question1);
 var question2 = document.createElement("div");
 question2.setAttribute('id','question2');
 question2.appendChild(document.createElement("label").appendChild(document.createTextNode("Un nombre pair?")));
+var info = document.createElement("p");
+info.setAttribute('id','exo1info2');
+info.setAttribute('class','info');
+info.appendChild(document.createTextNode("Aide"));
+info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 2";');
+info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+question2.appendChild(info);
 question2.appendChild(document.createElement("br"));
 question2.appendChild(document.createElement("input"));
 questions.appendChild(question2);
@@ -58,6 +65,13 @@ questions.appendChild(question2);
 var question3 = document.createElement("div");
 question3.setAttribute('id','question3');
 question3.appendChild(document.createElement("label").appendChild(document.createTextNode("Un multiple de 3?")));
+var info = document.createElement("p");
+info.setAttribute('id','exo1info3');
+info.setAttribute('class','info');
+info.appendChild(document.createTextNode("Aide"));
+info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 3";');
+info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+question3.appendChild(info);
 question3.appendChild(document.createElement("br"));
 question3.appendChild(document.createElement("input"));
 questions.appendChild(question3);
@@ -65,6 +79,13 @@ questions.appendChild(question3);
 var question4 = document.createElement("div");
 question4.setAttribute('id','question4');
 question4.appendChild(document.createElement("label").appendChild(document.createTextNode("Un multiple de 5?")));
+var info = document.createElement("p");
+info.setAttribute('id','exo1info4');
+info.setAttribute('class','info');
+info.appendChild(document.createTextNode("Aide"));
+info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 4";');
+info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+question4.appendChild(info);
 question4.appendChild(document.createElement("br"));
 question4.appendChild(document.createElement("input"));
 questions.appendChild(question4);
@@ -164,6 +185,13 @@ if(nb_sub == 3){ //afficher deuxieme exercice
     var question1 = document.createElement("div");
     question1.setAttribute('id','question1');
     question1.appendChild(document.createElement("label").appendChild(document.createTextNode("Ce graphique représente il une situation de proportionnalité ?")));
+    var info = document.createElement("p");
+    info.setAttribute('id','exo2info1');
+    info.setAttribute('class','info');
+    info.appendChild(document.createTextNode("Aide"));
+    info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 2 question 1";');
+    info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+    question1.appendChild(info);
     question1.appendChild(document.createElement("br"));
     var sel = document.createElement("select");
     var empty_option = new Option('', -1);
@@ -328,8 +356,6 @@ localStorage.setItem('exo1state', false);
 
 
 
-// }
-
 });
 
 function clear_string(str){
@@ -339,14 +365,3 @@ function clear_string(str){
    return clean;
   }
 
-  function display_help(element){
-    if(element.id= "exo1info1"){
-        element.firstChild.nodeValue = "Ceci est l'aide de l'exo question 1";
-    }
-  }
-
-  function hide_help(element){
-    if(element.id= "exo1info1"){
-        element.firstChild.nodeValue = "Aide";
-    }
-  }
