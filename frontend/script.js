@@ -44,10 +44,10 @@ $("#pseudoform").submit(function(event){
         mid = -1;
         console.log("ERROR: ", e);
     }});
-    console.log("before posting new player, pid: " + pid + ", mid: " + mid + ", pseudo : " + pseudo);
+    console.log("before posting new player, pid: " + pid + ", mid: " + mid + ", pseudo : " + clear_string(pseudo));
     // CREATE PLAYER
 
-    var data = '{"id":' + pid + ', "mapid":' + mid + ', "pseudo": "' + pseudo + '" }';
+    var data = '{"id":' + pid + ', "mapid":' + mid + ', "pseudo": "' + clear_string(pseudo) + '" }';
     //var data = "[{id: 5, mapid: 5, pseudo: \"Bruh\"}]"
     //var data = [{"id": 5,                "mapid": 5,                "pseudo": "BRUHHH"                }];           
                 
@@ -107,7 +107,7 @@ $("#pseudoform").submit(function(event){
     localStorage.setItem('playerid', pid);
     localStorage.setItem('mapid', mid);
     localStorage.setItem('playerposid', ppid);
-    localStorage.setItem('pseudo', pseudo);
+    localStorage.setItem('pseudo', clear_string(pseudo));
     localStorage.setItem('exo1state', false);
     localStorage.setItem('exo2state', false);
     localStorage.setItem('exo3state', false);
@@ -142,3 +142,10 @@ $("#pseudoform").submit(function(event){
       console.log("ERROR: ", e);
     }});*/
   });
+
+  function clear_string(str){
+    var clean =  str.replace(/;/g, '');
+    clean = clean.replace(/"/g, '');
+    clean = clean.replace(/'/g, '');
+   return clean;
+  }
