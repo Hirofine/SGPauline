@@ -45,12 +45,10 @@ $("#pseudoform").submit(function(event){
         console.log("ERROR: ", e);
     }});
     console.log("before posting new player, pid: " + pid + ", mid: " + mid + ", pseudo : " + clear_string(pseudo));
-    // CREATE PLAYER
+    
 
-    var data = '{"id":' + pid + ', "mapid":' + mid + ', "pseudo": "' + clear_string(pseudo) + '" }';
-    //var data = "[{id: 5, mapid: 5, pseudo: \"Bruh\"}]"
-    //var data = [{"id": 5,                "mapid": 5,                "pseudo": "BRUHHH"                }];           
-                
+    // CREATE PLAYER
+    var data = '{"id":' + pid + ', "mapid":' + mid + ', "pseudo": "' + clear_string(pseudo) + '" }';         
     $.ajax({type:"POST",
             url: api_url + "/player/", 
             async: false, 
@@ -117,30 +115,6 @@ $("#pseudoform").submit(function(event){
     //REDIRECT TO GAME
     location.href = './pages/game.html';
     
-    /*
-    $.post( "http://127.0.0.1:8000/player/", function( data ) {
-        console.log("in posting new player, pid: " + pid + ", mid: " + mid + ", pseudo : " + pseudo);    
-        alert( "Data Loaded: " + data );
-    });
-    
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8000/player/",
-        data: data,
-        success: success,
-        dataType: dataType
-      },
-        error : function(e) {
-        console.log("ERROR: ", e);
-    });
-    /*
-    $.ajax({url: "http://127.0.0.1:8000/", success: function(result){
-      $("#map").html(result);
-    },
-    error : function(e) {
-      $("#div1").html("<strong>Error</strong>");
-      console.log("ERROR: ", e);
-    }});*/
   });
 
   function clear_string(str){
