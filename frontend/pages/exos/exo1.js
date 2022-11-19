@@ -14,7 +14,7 @@ const inputs = document.getElementById("seq1").elements;
 var entete = document.getElementById("entete");
 var questions = document.getElementById("questions");
 
-var valid_rep = [false, false, false, false];
+
 var pass = false;
 
 //console.log("exo1");
@@ -22,6 +22,7 @@ var pass = false;
 $("#entete").append("<h2 style=\"color:#FF0000; font-weight: bold;   \" >merci de remplir entièrement le questionnaire</h2>")
 }else{*/
 nb_sub+=1;
+
 if(nb_sub == 1){ //afficher premier exercice
 // Afficher l'enoncé de l'exercice
 var entete_txt = document.createElement("p").appendChild(document.createTextNode("Dans un jeu de société, on lance un dé à 12 faces parfaitements équilibré numérotées de 1 à 12. Quelle est la probabilité d'avoir:")) 
@@ -69,7 +70,8 @@ if(nb_sub == 2){ //afficher correction premier exercice
     questionrep[1] = clear_string(inputs[1].value);
     questionrep[2] = clear_string(inputs[2].value);
     questionrep[3] = clear_string(inputs[3].value);
-
+    var valid_rep = [false, false, false, false];
+    var n_question = 4;
     var divs = questions.getElementsByClassName("div");
 
     const questionsol = ["1/12","1/2", "1/3", "1/6"];
@@ -83,7 +85,7 @@ if(nb_sub == 2){ //afficher correction premier exercice
     //console.log(questionrep[2]);
     //console.log(questionrep[3]);
 
-    for(var i=0; i<4; i++){
+    for(var i=0; i<n_question; i++){
         if (questionrep[i] == questionsol[i]){
             valid_rep[i] = true;
             var q1 = document.getElementById(("question" + (i + 1)));
@@ -99,7 +101,7 @@ if(nb_sub == 2){ //afficher correction premier exercice
     }
   
 //get a new score id
-for (var i =0; i< 4;i++){
+for (var i=0; i<n_question;i++){
 var scoreid;
 $.ajax({url: api_url  + "/score/newscoreid", async: false, success: function(result){
     console.log("new score id: " + result);
@@ -165,16 +167,16 @@ if(nb_sub == 3){ //afficher deuxieme exercice
     question1.appendChild(sel);
     questions.appendChild(question1);
 }
-if( nb_sub == 4){ //afficher correction deuxième exercice
+if(nb_sub == 4){ //afficher correction deuxième exercice
     var questionrep = [];
     questionrep[0] = clear_string(inputs[0].value);
-
+    var valid_rep = [false];
     var divs = questions.getElementsByClassName("div");
-
+    var n_question = 1;
     const questionsol = ["true"];
     const corr = ["Correction1"]
 
-    for(var i=0; i<1; i++){
+    for(var i=0; i<n_question; i++){
         if (questionrep[i] == questionsol[i]){
             valid_rep[i] = true;
             var q1 = document.getElementById(("question" + (i + 1)));
@@ -188,7 +190,7 @@ if( nb_sub == 4){ //afficher correction deuxième exercice
             document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             } 
     }
-    for (var i =0; i< 1;i++){
+    for (var i =0; i<n_question;i++){
         var scoreid;
         $.ajax({url: api_url  + "/score/newscoreid", async: false, success: function(result){
             console.log("new score id: " + result);
@@ -212,17 +214,86 @@ if( nb_sub == 4){ //afficher correction deuxième exercice
                 //ppid = result;
             },
             error : function(e) {
-                pid = -1;
                 console.log("ERROR: ", e);
             }});
         }
 }
+if(nb_sub == 5){ //afficher troisieme exercice
+    //clean ancien exo
+    const entete = document.getElementById("entete");
+    while (entete.firstChild) {
+    entete.removeChild(entete.lastChild);
+    }
+    const questions = document.getElementById("questions");
+    while (questions.firstChild) {
+        questions.removeChild(questions.lastChild);
+    }
 
+    var entete_txt = document.createElement("p").appendChild(document.createTextNode("Dans un jeu de société, on lance un dé à 12 faces parfaitements équilibré numérotées de 1 à 12. Quelle est la probabilité d'avoir:")) 
+    var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Exprimer vos résultats en fraction irréductibles"));
+    entete.appendChild(entete_txt);
+    entete.appendChild(document.createElement("br"));
+    entete.appendChild(sub_entete_txt);
 
+    //Afficher les questions
+    var question1 = document.createElement("div");
+    question1.setAttribute('id','question1');
+    question1.appendChild(document.createElement("label").appendChild(document.createTextNode("Un deux?")));
+    question1.appendChild(document.createElement("br"));
+    question1.appendChild(document.createElement("input"));
+    questions.appendChild(question1);
+    }
+if(nb_sub == 6){ //afficher correction troisième exercice
+    var questionrep = [];
+    questionrep[0] = clear_string(inputs[0].value);
+    var n_question = 1;
+    var divs = questions.getElementsByClassName("div");
+    var valid_rep = [false];
+    const questionsol = ["true"];
+    const corr = ["Correction1"]
 
-
-
-
+    for(var i=0; i<n_question; i++){
+        if (questionrep[i] == questionsol[i]){
+            valid_rep[i] = true;
+            var q1 = document.getElementById(("question" + (i + 1)));
+            q1.appendChild(document.createElement("br"));
+            q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+            }else{
+            var q1 = document.getElementById("question"+ (i +1));
+            q1.appendChild(document.createElement("br"));
+            q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+            document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
+            document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
+            } 
+    }
+    for (var i=0; i<n_question;i++){
+        var scoreid;
+        $.ajax({url: api_url  + "/score/newscoreid", async: false, success: function(result){
+            console.log("new score id: " + result);
+            scoreid = result;
+        },
+        error : function(e) {
+            scoreid = -1;
+            console.log("ERROR: ", e);
+        }});
+        //Stocker resulats (table scores)
+        var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":1, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
+        console.log("data before posting : " + data);
+        $.ajax({type:"POST",
+                    url: api_url + "/score/", 
+                    async: false, 
+                    data: data,
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function(result){
+                console.log(result);
+                //ppid = result;
+            },
+            error : function(e) {
+                console.log("ERROR: ", e);
+            }});
+        }
+}
 
 if (pass){
 localStorage.setItem('exo1state', true);
@@ -246,7 +317,7 @@ else {
 localStorage.setItem('exo1state', false);
 }
 
-if(nb_sub == 10){
+if(nb_sub == 7){
 location.href = '../game.html';
 }
 
