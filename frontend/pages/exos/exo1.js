@@ -33,7 +33,7 @@ $("#seq1").submit(function (event) {
             questions.removeChild(questions.lastChild);
         }
         // Afficher l'enoncé de l'exercice
-        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Dans un jeu de société, on lance un dé à 12 faces parfaitements équilibré numérotées de 1 à 12. Quelle est la probabilité d'avoir:"))
+        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Solène a 10 cartes : 1 verte, 2 bleues, 3 rouges et 4 noires. Lana tire une carte au hasard."))
         var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Exprimer vos résultats en fraction irréductibles"));
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
@@ -42,7 +42,7 @@ $("#seq1").submit(function (event) {
         //Afficher les questions
         var question1 = document.createElement("div");
         question1.setAttribute('id', 'question1');
-        question1.appendChild(document.createElement("label").appendChild(document.createTextNode("Un deux?")));
+        question1.appendChild(document.createElement("label").appendChild(document.createTextNode("1) Quelle est la probabilité que la carte de Lana soit bleue ?")));
         var info = document.createElement("p");
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
@@ -57,7 +57,7 @@ $("#seq1").submit(function (event) {
 
         var question2 = document.createElement("div");
         question2.setAttribute('id', 'question2');
-        question2.appendChild(document.createElement("label").appendChild(document.createTextNode("Un nombre pair?")));
+        question2.appendChild(document.createElement("label").appendChild(document.createTextNode("Quelle est la probabilité que la carte de Lana ne soit pas noire ?")));
         var info = document.createElement("p");
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
@@ -70,34 +70,6 @@ $("#seq1").submit(function (event) {
         questions.appendChild(question2);
 
 
-        var question3 = document.createElement("div");
-        question3.setAttribute('id', 'question3');
-        question3.appendChild(document.createElement("label").appendChild(document.createTextNode("Un multiple de 3?")));
-        var info = document.createElement("p");
-        info.setAttribute('id', 'exo1info3');
-        info.setAttribute('class', 'info');
-        info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 3";');
-        info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
-        question3.appendChild(info);
-        question3.appendChild(document.createElement("br"));
-        question3.appendChild(document.createElement("input"));
-        questions.appendChild(question3);
-
-        var question4 = document.createElement("div");
-        question4.setAttribute('id', 'question4');
-        question4.appendChild(document.createElement("label").appendChild(document.createTextNode("Un multiple de 5?")));
-        var info = document.createElement("p");
-        info.setAttribute('id', 'exo1info4');
-        info.setAttribute('class', 'info');
-        info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 4";');
-        info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
-        question4.appendChild(info);
-        question4.appendChild(document.createElement("br"));
-        question4.appendChild(document.createElement("input"));
-        questions.appendChild(question4);
-
         //Renommer bouton Continuer
         document.getElementById('submit').setAttribute('value', "Vérifier");
 
@@ -106,17 +78,14 @@ $("#seq1").submit(function (event) {
         var questionrep = [];
         questionrep[0] = clear_string(inputs[0].value);
         questionrep[1] = clear_string(inputs[1].value);
-        questionrep[2] = clear_string(inputs[2].value);
-        questionrep[3] = clear_string(inputs[3].value);
         var valid_rep = [false, false, false, false];
-        var n_question = 4;
+        var n_question = 2;
         var divs = questions.getElementsByClassName("div");
 
-        const questionsol = ["1/12", "1/2", "1/3", "1/6"];
+        const questionsol = ["1/5", "2/5"];
         const corr = ["Correction1",
-            "Correction2",
-            "Correction3",
-            "Correction4"];
+                      "Correction2",
+                     ];
 
         //console.log(questionrep[0]);
         //console.log(questionrep[1]);
@@ -286,44 +255,157 @@ $("#seq1").submit(function (event) {
             questions.removeChild(questions.lastChild);
         }
 
-        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Dans un jeu de société, on lance un dé à 12 faces parfaitements équilibré numérotées de 1 à 12. Quelle est la probabilité d'avoir:"))
-        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Exprimer vos résultats en fraction irréductibles"));
+        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Au cinéma, pour améliorer la fluidité du film on respecte une norme qui consiste à mettre 24 images par seconde. "))
+        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode(" "));
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
         entete.appendChild(sub_entete_txt);
 
         //Afficher les questions
+        //qeustion 1
         var question1 = document.createElement("div");
         question1.setAttribute('id', 'question1');
-        question1.appendChild(document.createElement("label").appendChild(document.createTextNode("Un deux?")));
+        question1.appendChild(document.createElement("label").appendChild(document.createTextNode("Remplir le tableau suivant :")));
+        var info = document.createElement("p");
+        info.setAttribute('id', 'exo3info1');
+        info.setAttribute('class', 'info');
+        info.appendChild(document.createTextNode("Aide"));
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 1";');
+        info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
-        question1.appendChild(document.createElement("input"));
+        var table = document.createElement("table");
+        var tr1 = document.createElement("tr");
+        var td1 = document.createElement("td");
+        td1.appendChild(document.createTextNode("Durée du film en seconde"));
+        var td2 = document.createElement("td");
+        td2.appendChild(document.createTextNode("1"))
+        var td3 = document.createElement("td");
+        td3.appendChild(document.createTextNode("10"))
+        var td4 = document.createElement("td");
+        td4.appendChild(document.createTextNode("20"))
+        var td5 = document.createElement("td");
+        td5.appendChild(document.createTextNode("60"))
+        var td6 = document.createElement("td");
+        td6.appendChild(document.createTextNode("255"))
+        tr1.appendChild(td1);
+        tr1.appendChild(td2);
+        tr1.appendChild(td3);
+        tr1.appendChild(td4);
+        tr1.appendChild(td5);
+        tr1.appendChild(td6);
+        table.appendChild(tr1);
+
+        var tr2 = document.createElement("tr");
+        var td1 = document.createElement("td");
+        td1.appendChild(document.createTextNode("Nombre d'images"));
+        var td2 = document.createElement("td");
+        td2.appendChild(document.createElement("input"));
+        var td3 = document.createElement("td");
+        td3.appendChild(document.createElement("input"));
+        var td4 = document.createElement("td");
+        td4.appendChild(document.createElement("input"));
+        var td5 = document.createElement("td");
+        td5.appendChild(document.createElement("input"));
+        var td6 = document.createElement("td");
+        td6.appendChild(document.createElement("input"));
+        tr2.appendChild(td1);
+        tr2.appendChild(td2);
+        tr2.appendChild(td3);
+        tr2.appendChild(td4);
+        tr2.appendChild(td5);
+        tr2.appendChild(td6);
+        table.appendChild(tr2);
+        question1.appendChild(table);
+        var p2 = document.createElement("label");
+        p2.appendChild(document.createTextNode("Donner le coefficient de proportionnalité."));
+        question1.appendChild(p2);
+        question1.appendChild(document.createElement("input"))
         questions.appendChild(question1);
+
+
+
+        //question 2
+        var question2 = document.createElement("div");
+        question2.setAttribute('id', 'question2');
+        question2.appendChild(document.createElement("label").appendChild(document.createTextNode("La situation est-elle proportionnelle ?")));
+        var info = document.createElement("p");
+        info.setAttribute('id', 'exo3info2');
+        info.setAttribute('class', 'info');
+        info.appendChild(document.createTextNode("Aide"));
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 2";');
+        info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question2.appendChild(info);
+        question2.appendChild(document.createElement("br"));
+        var sel = document.createElement("select");
+        var empty_option = new Option('', -1);
+        empty_option.style.display = 'none';
+        sel.appendChild(empty_option);
+        sel.appendChild(new Option('Vrai', true));
+        sel.appendChild(new Option('Faux', false));
+        question2.appendChild(sel);
+        questions.appendChild(question2);
+
+
+
+        //question 3
+        var question3 = document.createElement("div");
+        question3.setAttribute('id', 'question3');
+        question3.appendChild(document.createElement("label").appendChild(document.createTextNode("Exprimer cette situation par une fonction.")));
+        var info = document.createElement("p");
+        info.setAttribute('id', 'exo3info3');
+        info.setAttribute('class', 'info');
+        info.appendChild(document.createTextNode("Aide"));
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 3";');
+        info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question3.appendChild(info);
+        question3.appendChild(document.createElement("br"));
+        question3.appendChild(document.createElement("input"));
+        questions.appendChild(question3);
+
+
 
 
         document.getElementById('submit').setAttribute('value', "Vérifier");
     }
     if (nb_sub == 6) { //afficher correction troisième exercice
         var questionrep = [];
-        questionrep[0] = clear_string(inputs[0].value);
-        var n_question = 1;
+        var n_question = 8;
+        for (var i=0; i<n_question;i++){
+            questionrep[i] = clear_string(inputs[i].value);
+        }
         var divs = questions.getElementsByClassName("div");
-        var valid_rep = [false];
-        const questionsol = ["true"];
-        const corr = ["Correction1"]
+        var valid_rep = [false, false, false, false, false, false, false, false];
+        const questionsol = ["24","240","480","1440","6120","24","true","f(x)=24x"];
+        const corr = ["Correction1",
+                      "Correction2",
+                      "Correction3",
+                      "Correction4",
+                      "Correction5",
+                      "Correction6",
+                      "Correction7",
+                      "Correction8"]
 
         for (var i = 0; i < n_question; i++) {
             if (questionrep[i] == questionsol[i]) {
                 valid_rep[i] = true;
-                var q1 = document.getElementById(("question" + (i + 1)));
+                if(i<6){
+                    var q1 = document.getElementById("question1");
+                }else{
+                    var q1 = document.getElementById(("question" + (i-4)));
+                }
                 q1.appendChild(document.createElement("br"));
                 q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
             } else {
-                var q1 = document.getElementById("question" + (i + 1));
+                if(i<6){
+                    var q1 = document.getElementById("question1");
+                }else{
+                    var q1 = document.getElementById(("question" + (i-4)));
+                }
                 q1.appendChild(document.createElement("br"));
                 q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
-                document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
-                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
+                q1.style.color = "#DF0000";
+                q1.style.fontWeight = "bold";
             }
         }
         for (var i = 0; i < n_question; i++) {
@@ -393,6 +475,7 @@ $("#seq1").submit(function (event) {
 
 function clear_string(str) {
     var clean = str.replace(/;/g, '');
+    clean = clean.replace(/ /g, '');
     clean = clean.replace(/"/g, '');
     clean = clean.replace(/'/g, '');
     return clean;

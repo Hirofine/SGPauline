@@ -25,3 +25,12 @@ div.question{
 input.input{
   float:left;
 }
+
+table, td, th {
+  border: 1px solid;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
