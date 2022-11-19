@@ -1,3 +1,6 @@
+//var api_url = "http://83.194.254.189:8000";
+var api_url = "http://localhost:8000";
+
 $("#exo5").submit(function(event){
     event.preventDefault();
     var leverid = localStorage.getItem('lastLeverClicked');
@@ -8,7 +11,7 @@ $("#exo5").submit(function(event){
         localStorage.setItem('exo5state', true);
         var data = '{}';  
         $.ajax({type:"PUT",
-            url: "http://83.194.254.189:8000/leverroom/" + leverid + "?state=true", 
+            url: api_url + "/leverroom/" + leverid + "?state=true", 
             async: false, 
             data: data,
             dataType: "json",

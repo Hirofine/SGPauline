@@ -89,11 +89,12 @@ $(document).ready(function(){
           var leversprite = "../sprites/items/leverup.png"; //not solved
           
         }else{
-          var leversprite = "../spritys/items/leverdown.png"; //solved
+          var leversprite = "../sprites/items/leverdown.png"; //solved
         }
         leverposx = -((xsize - element.posx) * room_size) + leverdeltax;
         leverposy = - leverdeltay;
-        $("#maprow" + element.posy).append("<img id=\"lever"+ element.id + "\" class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px; opacity:0;\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
+        var opa = 1 * element.state;
+        $("#maprow" + element.posy).append("<img id=\"lever"+ element.id + "\" class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px; opacity:" + opa +";\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
       });
     },
     error : function(e) {

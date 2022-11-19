@@ -35,6 +35,13 @@ entete.appendChild(sub_entete_txt);
 var question1 = document.createElement("div");
 question1.setAttribute('id','question1');
 question1.appendChild(document.createElement("label").appendChild(document.createTextNode("Un deux?")));
+var info = document.createElement("p");
+info.setAttribute('id','exo1info1');
+info.setAttribute('class','info');
+info.appendChild(document.createTextNode("Aide"));
+info.setAttribute('onmouseover', 'display_help(this)');
+info.setAttribute('onmouseout', 'hide_help(this)');
+question1.appendChild(info);
 question1.appendChild(document.createElement("br"));
 question1.appendChild(document.createElement("input"));
 questions.appendChild(question1);
@@ -295,8 +302,10 @@ if(nb_sub == 6){ //afficher correction troisième exercice
         }
 }
 
-if (pass){
+
+if(nb_sub == 7){
 localStorage.setItem('exo1state', true);
+location.href = '../game.html';
 var data = '{}';  
 $.ajax({type:"PUT",
     url: api_url + "/leverroom/" + leverid + "?state=true", 
@@ -317,9 +326,7 @@ else {
 localStorage.setItem('exo1state', false);
 }
 
-if(nb_sub == 7){
-location.href = '../game.html';
-}
+
 
 // }
 
@@ -330,4 +337,16 @@ function clear_string(str){
     clean = clean.replace(/"/g, '');
     clean = clean.replace(/'/g, '');
    return clean;
+  }
+
+  function display_help(element){
+    if(element.id= "exo1info1"){
+        element.firstChild.nodeValue = "Ceci est l'aide de l'exo question 1";
+    }
+  }
+
+  function hide_help(element){
+    if(element.id= "exo1info1"){
+        element.firstChild.nodeValue = "Aide";
+    }
   }

@@ -6,3 +6,22 @@
     font-size:110%;
     font-weight:normal;
 }
+
+p.info{
+  display:inline-block;
+  border: 1px solid black;
+  background-color: aqua;
+  
+}
+
+div.label{
+  float: left;
+}
+
+div.question{
+  width: 500px;
+}
+
+input.input{
+  float:left;
+}
