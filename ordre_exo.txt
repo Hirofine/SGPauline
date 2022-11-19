@@ -1,21 +1,20 @@
 SEQ1:
-	EXO1:
-	EXO2:
-	EXO3:
+	EXO1:1
+	EXO2:6
+	EXO3:8
 	
 SEQ2:
-	EXO1:
-	EXO2:
-	EXO3:
-	
+	EXO1:5
+	EXO2:9
+	EXO3:2
 SEQ3:
-	EXO1:
-	EXO2:
+	EXO1:7
+	EXO2:3
 	EXO3:
 	
 SEQ4:
-	EXO1:
-	EXO2:
+	EXO1:10
+	EXO2:4
 	EXO3:
 	
 SEQ5:
