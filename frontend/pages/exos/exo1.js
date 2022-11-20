@@ -101,14 +101,14 @@ $("#seq1").submit(function (event) {
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
+                document.getElementById(("question" + (i + 1))).style.color = "#05DF2A";
+                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
-                document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
-                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
         }
 
@@ -210,14 +210,14 @@ $("#seq1").submit(function (event) {
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
+                document.getElementById(("question" + (i + 1))).style.color = "#05DF2A";
+                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
-                document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
-                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
         }
         for (var i = 0; i < n_question; i++) {
@@ -426,7 +426,8 @@ $("#seq1").submit(function (event) {
                     q1.appendChild(document.createElement("br"));
                     q1.appendChild(correlmt);
                 }
-                
+                document.getElementById(("question" + (i + 1))).style.color = "#05DF2A";
+                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             } else {
                 if(i<5){
                     if(i==0){
@@ -444,8 +445,7 @@ $("#seq1").submit(function (event) {
                     q1.appendChild(correlmt);
                 }
                 
-                q1.style.color = "#DF0000";
-                q1.style.fontWeight = "bold";
+                
             }
         }
         for (var i = 0; i < n_question; i++) {
