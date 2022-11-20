@@ -326,10 +326,6 @@ $("#seq1").submit(function (event) {
         tr2.appendChild(td6);
         table.appendChild(tr2);
         question1.appendChild(table);
-        var p2 = document.createElement("label");
-        p2.appendChild(document.createTextNode("Donner le coefficient de proportionnalité."));
-        question1.appendChild(p2);
-        question1.appendChild(document.createElement("input"))
         questions.appendChild(question1);
 
 
@@ -355,12 +351,11 @@ $("#seq1").submit(function (event) {
         question2.appendChild(sel);
         questions.appendChild(question2);
 
-
-
+        
         //question 3
         var question3 = document.createElement("div");
         question3.setAttribute('id', 'question3');
-        question3.appendChild(document.createElement("label").appendChild(document.createTextNode("Exprimer cette situation par une fonction.")));
+        question3.appendChild(document.createElement("label").appendChild(document.createTextNode("Donner le coefficient de proportionnalité.")));
         var info = document.createElement("p");
         info.setAttribute('id', 'exo3info3');
         info.setAttribute('class', 'info');
@@ -370,9 +365,25 @@ $("#seq1").submit(function (event) {
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
         var inp = document.createElement("input");
-        inp.placeholder = "f(x)=ax";
         question3.appendChild(inp);
         questions.appendChild(question3);
+
+        //question 4
+        var question4 = document.createElement("div");
+        question4.setAttribute('id', 'question4');
+        question4.appendChild(document.createElement("label").appendChild(document.createTextNode("Exprimer cette situation par une fonction.")));
+        var info = document.createElement("p");
+        info.setAttribute('id', 'exo4info3');
+        info.setAttribute('class', 'info');
+        info.appendChild(document.createTextNode("Aide"));
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 4";');
+        info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question4.appendChild(info);
+        question4.appendChild(document.createElement("br"));
+        var inp = document.createElement("input");
+        inp.placeholder = "f(x)=ax";
+        question4.appendChild(inp);
+        questions.appendChild(question4);
 
 
 
@@ -393,14 +404,14 @@ $("#seq1").submit(function (event) {
                       "Correction3",
                       "Correction4",
                       "Correction5",
-                      "./images/corr/seq1exo3que3.png",
                       "./images/corr/seq1exo3que2.png",
+                      "./images/corr/seq1exo3que3.png",
                       "./images/corr/seq1exo3que4.png"]
 
         for (var i = 0; i < n_question; i++) {
             if (questionrep[i] == questionsol[i]) {
                 valid_rep[i] = true;
-                if(i<6){
+                if(i<5){
                     if(i==0){
                         var q1 = document.getElementById("question1");
                         var correlmt = document.createElement("img");
@@ -409,7 +420,7 @@ $("#seq1").submit(function (event) {
                         q1.appendChild(correlmt);
                     }
                 }else{
-                    var q1 = document.getElementById(("question" + (i-4)));
+                    var q1 = document.getElementById(("question" + (i-3)));
                     var correlmt = document.createElement("img");
                     correlmt.setAttribute('src',corr[i]);
                     q1.appendChild(document.createElement("br"));
@@ -417,7 +428,7 @@ $("#seq1").submit(function (event) {
                 }
                 
             } else {
-                if(i<6){
+                if(i<5){
                     if(i==0){
                         var q1 = document.getElementById("question1");
                         var correlmt = document.createElement("img");
@@ -426,7 +437,7 @@ $("#seq1").submit(function (event) {
                         q1.appendChild(correlmt);
                     }
                 }else{
-                    var q1 = document.getElementById(("question" + (i-4)));
+                    var q1 = document.getElementById(("question" + (i-3)));
                     var correlmt = document.createElement("img");
                     correlmt.setAttribute('src',corr[i]);
                     q1.appendChild(document.createElement("br"));
