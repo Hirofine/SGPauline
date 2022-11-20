@@ -162,7 +162,7 @@ $("#seq1").submit(function (event) {
 
         var entete_txt = document.createElement("p").appendChild(document.createTextNode("Exercice 2 :"))
         var sub_entete_txt = document.createElement("img");
-        sub_entete_txt.src = "./images/seq1exo2q1.png";
+        sub_entete_txt.src = "./images/enonces/seq1exo2q1.png";
         sub_entete_txt.style.width = '600px';
 
         entete.appendChild(entete_txt);
