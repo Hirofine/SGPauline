@@ -46,7 +46,7 @@ $("#seq4").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 1";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Chercher le coefficient multiplicateur. En déduire le pourcentage d\'augmentation";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
@@ -61,7 +61,7 @@ $("#seq4").submit(function (event) {
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 2";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Essayer de faire correspondre y et x avec les données de l\'énoncé";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
@@ -167,7 +167,7 @@ $("#seq4").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 2 question 1";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "L\'effectif total est donné par la somme de tout les effectifs.";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
@@ -182,7 +182,7 @@ $("#seq4").submit(function (event) {
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 1 question 2";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "A partir de quand un véhicule est en excès de vitesse ?La fréquence d\'apparition est donnée par le quotient de son effectif par l\'effectif total";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
@@ -197,7 +197,7 @@ $("#seq4").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 2 question 1";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = " L\'étendue d\'une série de données est la différence entre la plus grande valeur et la plus petite valeur de la série.";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
