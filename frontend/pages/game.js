@@ -117,8 +117,8 @@ $(document).ready(function(){
     
   // ADD PLAYER SPRITE
   console.log("adding player sprite");
-  
-  $("#player").html("<img class=\"player\" src=\"" + playsprite +"\" width=\"" + playsprite_size[0] + "\" height=\"" + playsprite_size[1] + "\" id=\"player\" style=\"top: " + playerposition[0] + "px ;  left: " + playerposition[1] + "px ;\" ></img>")
+  var pos = realplayerpos(playerposition);
+  $("#player").html("<img class=\"player\" src=\"" + playsprite +"\" width=\"" + playsprite_size[0] + "\" height=\"" + playsprite_size[1] + "\" id=\"player\" style=\"top: " + pos[1] + "px ;  left: " + pos[0] + "px ;\" ></img>")
 
   
 
