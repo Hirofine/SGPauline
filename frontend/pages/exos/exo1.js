@@ -224,7 +224,7 @@ $("#seq1").submit(function (event) {
                 }
             });
             //Stocker resulats (table scores)
-            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":1, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
+            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":2, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
             console.log("data before posting : " + data);
             $.ajax({
                 type: "POST",
@@ -421,7 +421,7 @@ $("#seq1").submit(function (event) {
                 }
             });
             //Stocker resulats (table scores)
-            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":1, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
+            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":3, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
             console.log("data before posting : " + data);
             $.ajax({
                 type: "POST",

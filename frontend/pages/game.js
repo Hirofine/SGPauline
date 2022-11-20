@@ -65,7 +65,7 @@ $(document).ready(function(){
       li += ("<div id=\"maprow"+ i + "\">"); 
       for (var j=0;j<ysize;j++){ 
         maproom = "maproom" + (i*ysize + j);
-        opacity = ((result[i*ysize+j].isfound)? 1.0 : 0.0);
+        opacity = ((result[i*ysize+j].isfound)? 1.0 : 0.05);
         li += ("<img id=\"" + maproom + "\" class=\"room\" src=\"../sprites/rooms/" + result[i*ysize + j].posmod + ".png\" width=\""+ room_size + "\" height=\""+ room_size + "\" top=\"0\" left=\"0\" style=\"opacity:" + opacity + "\"></img>"); 
         room_founded[i][j] = result[i*ysize+j].isfound;     
       }
@@ -242,7 +242,7 @@ var proomy = Math.floor(playerposition[0] / room_size);
 var proomx = Math.floor(playerposition[1] / room_size);
 var door_ratio = 0.1875;
 var door_size = Math.round(room_size * door_ratio);
-var wall_ratio = 0.078125;
+var wall_ratio = 0.04296875;
 var wall_size = Math.round(room_size * wall_ratio);
 room_founded[proomx][proomy] = true;
 var actualroomid = "maproom" + (proomx*ysize + proomy);
