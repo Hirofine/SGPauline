@@ -63,7 +63,7 @@ $("#seq1").submit(function (event) {
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Penser à utiliser l’événement contraire";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Penser à utiliser l\'événement contraire";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
