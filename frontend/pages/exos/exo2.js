@@ -469,10 +469,10 @@ $("#seq2").submit(function (event) {
                       "Correction5",
                       "Correction6",
                       "Correction7",
-                      "./images/corr/seq2exo2que2.png",
-                      "./images/corr/seq2exo2que3.png",
-                      "./images/corr/seq2exo2que4.png",
-                      "./images/corr/seq2exo2que5.png"]
+                      "./images/corr/seq2exo3que2.png",
+                      "./images/corr/seq2exo3que3.png",
+                      "./images/corr/seq2exo3que4.png",
+                      "./images/corr/seq2exo3que5.png"]
 
         for (var i = 0; i < n_question; i++) {
 

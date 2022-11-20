@@ -73,7 +73,7 @@ $("#seq3").submit(function (event) {
         var divs = questions.getElementsByClassName("div");
 
         const questionsol = ["false"];
-        const corr = ["Correction1"];
+        const corr = ["./images/corr/seq3exo1que1.png"];
 
         //console.log(questionrep[0]);
         //console.log(questionrep[1]);
@@ -85,11 +85,15 @@ $("#seq3").submit(function (event) {
                 valid_rep[i] = true;
                 var q1 = document.getElementById(("question" + (i + 1)));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
                 document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
                 document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
@@ -207,20 +211,24 @@ $("#seq3").submit(function (event) {
         var divs = questions.getElementsByClassName("div");
         var valid_rep = [false, false, false];
         const questionsol = ["30","1/5","4/5"];
-        const corr = ["Correction1",
-                      "Correction2",
-                      "Correction3"];
+        const corr = ["./images/corr/seq3exo2que1.png",
+                      "./images/corr/seq3exo2que2.png",
+                      "./images/corr/seq3exo2que3.png"];
 
         for (var i = 0; i < n_question; i++) {
             if (questionrep[i] == questionsol[i]) {
                 valid_rep[i] = true;
                 var q1 = document.getElementById(("question" + (i + 1)));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
                 document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
                 document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
