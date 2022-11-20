@@ -35,7 +35,10 @@ $("#seq2").submit(function (event) {
         }
         // Afficher l'enoncé de l'exercice
         var entete_txt = document.createElement("p").appendChild(document.createTextNode("Voici la répartition des âges des spectateurs lors d’un concert"))
-        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Inserer image graph exo5"));
+        
+        var sub_entete_txt = document.createElement("img");
+        sub_entete_txt.src = "./images/enonces/seq2exo1.png";
+        sub_entete_txt.style.width = '600px';
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
         entete.appendChild(sub_entete_txt);
