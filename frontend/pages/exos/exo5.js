@@ -1,6 +1,6 @@
 //var api_url = "http://83.194.254.189:8000";
-var api_url = "http://localhost:8000";
-
+//var api_url = "http://localhost:8000";
+var api_url = "http://memoire.hirofine.fr:8000";
 $("#exo5").submit(function(event){
     event.preventDefault();
     var leverid = localStorage.getItem('lastLeverClicked');

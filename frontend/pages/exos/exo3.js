@@ -1,6 +1,7 @@
 var nb_sub;
 //var api_url = "http://83.194.254.189:8000";
-var api_url = "http://localhost:8000";
+//var api_url = "http://localhost:8000";
+var api_url = "http://memoire.hirofine.fr:8000";
 $(document).ready(function () {
     nb_sub = 0;
     var entete = document.getElementById("entete");
@@ -292,7 +293,6 @@ function clear_string(str) {
     clean = clean.replace(/ /g, '');
     clean = clean.replace(/"/g, '');
     clean = clean.replace(/'/g, ''); 
-    clean = clean.replace(/./g, ',');
     return clean;
 }
 

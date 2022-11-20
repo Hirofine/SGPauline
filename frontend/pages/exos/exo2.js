@@ -1,6 +1,7 @@
 var nb_sub;
 //var api_url = "http://83.194.254.189:8000";
-var api_url = "http://localhost:8000";
+//var api_url = "http://localhost:8000";
+var api_url = "http://memoire.hirofine.fr:8000";
 $(document).ready(function () {
     nb_sub = 0;
     var entete = document.getElementById("entete");
@@ -333,9 +334,9 @@ $("#seq2").submit(function (event) {
         var td1 = document.createElement("td");
         td1.appendChild(document.createTextNode("A"));
         var td2 = document.createElement("td");
-        td2.appendChild(document.createElement("input"));
+        td2.appendChild(document.createTextNode("(A,A)"));
         var td3 = document.createElement("td");
-        td3.appendChild(document.createElement("input"));
+        td3.appendChild(document.createTextNode("(B,A)"));
         var td4 = document.createElement("td");
         td4.appendChild(document.createElement("input"));
         tr2.appendChild(td1);
@@ -446,13 +447,13 @@ $("#seq2").submit(function (event) {
     }
     if (nb_sub == 6) { //afficher correction troisième exercice
         var questionrep = [];
-        var n_question = 13;
+        var n_question = 11;
         for (var i=0; i<n_question;i++){
             questionrep[i] = clear_string(inputs[i].value);
         }
         var divs = questions.getElementsByClassName("div");
-        var valid_rep = [false, false, false, false, false, false, false, false, false, false, false, false, false];
-        const questionsol = ["(A,A)","(B,A)","(C,A)","(A,B)","(A,B)","(B,B)","(C,B)","(A,C)","(B,C)","(C,C)","1/9","4/9","4/9","5/9"];
+        var valid_rep = [false, false, false, false, false, false, false, false, false, false, false];
+        const questionsol = ["(C,A)","(A,B)","(B,B)","(C,B)","(A,C)","(B,C)","(C,C)","1/9","4/9","4/9","5/9"];
         const corr = ["Correction1",
                       "Correction2",
                       "Correction3",
@@ -463,25 +464,24 @@ $("#seq2").submit(function (event) {
                       "Correction8",
                       "Correction9",
                       "Correction10",
-                      "Correction11",
-                      "Correction12",
-                      "Correction13"]
+                      "Correction11"]
 
         for (var i = 0; i < n_question; i++) {
+
             if (questionrep[i] == questionsol[i]) {
                 valid_rep[i] = true;
-                if(i<9){
+                if(i<7){
                     var q1 = document.getElementById("question1");
                 }else{
-                    var q1 = document.getElementById(("question" + (i-7)));
+                    var q1 = document.getElementById(("question" + (i-5)));
                 }
                 q1.appendChild(document.createElement("br"));
                 q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
             } else {
-                if(i<9){
+                if(i<7){
                     var q1 = document.getElementById("question1");
                 }else{
-                    var q1 = document.getElementById(("question" + (i-7)));
+                    var q1 = document.getElementById(("question" + (i-5)));
                 }
                 q1.appendChild(document.createElement("br"));
                 q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
@@ -558,7 +558,7 @@ function clear_string(str) {
     clean = clean.replace(/ /g, '');
     clean = clean.replace(/"/g, '');
     clean = clean.replace(/'/g, ''); 
-    clean = clean.replace(/./g, ',');
+    //clean = clean.replace(/./g, ',');
     return clean;
 }
 

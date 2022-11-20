@@ -1,5 +1,6 @@
 //var api_url = "http://83.194.254.189:8000";
-var api_url = "http://localhost:8000";
+//var api_url = "http://localhost:8000";
+var api_url = "http://memoire.hirofine.fr:8000";
 
 var playerposition = [0,0];
 var playhitboxcorr = 7; 
@@ -94,7 +95,7 @@ $(document).ready(function(){
         leverposx = -((xsize - element.posx) * room_size) + leverdeltax;
         leverposy = - leverdeltay;
         var opa = 1 * element.state;
-        $("#maprow" + element.posy).append("<img id=\"lever"+ element.id + "\" class=\"lever\" src=\"" + leversprite +"\" width=\"16\" height=\"32\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px; opacity:" + opa +";\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
+        $("#maprow" + element.posy).append("<img id=\"lever"+ element.id + "\" class=\"lever\" src=\"" + leversprite +"\" width=\"26\" height=\"64\" id=\"lever\" style=\"top: " + leverposy + "px ;  left: " + leverposx + "px; opacity:" + opa +";\" onclick=\"onleverclick("+ element.state + "," + element.id +")\" ></img>");
       });
     },
     error : function(e) {

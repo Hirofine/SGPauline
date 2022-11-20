@@ -1,6 +1,7 @@
 var nb_sub;
 //var api_url = "http://83.194.254.189:8000";
-var api_url = "http://localhost:8000";
+//var api_url = "http://localhost:8000";
+var api_url = "http://memoire.hirofine.fr:8000";
 $(document).ready(function () {
     nb_sub = 0;
     var entete = document.getElementById("entete");
@@ -360,7 +361,9 @@ $("#seq1").submit(function (event) {
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
-        question3.appendChild(document.createElement("input"));
+        var inp = document.createElement("input");
+        inp.placeholder = "f(x)=ax";
+        question3.appendChild(inp);
         questions.appendChild(question3);
 
 
@@ -477,7 +480,6 @@ function clear_string(str) {
     clean = clean.replace(/ /g, '');
     clean = clean.replace(/"/g, '');
     clean = clean.replace(/'/g, ''); 
-    clean = clean.replace(/./g, ',');
     return clean;
 }
 
