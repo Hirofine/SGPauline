@@ -35,7 +35,6 @@ $("#seq4").submit(function (event) {
         }
         // Afficher l'enoncé de l'exercice
         var entete_txt = document.createElement("p").appendChild(document.createTextNode("En 2018, le ticket de tram coûtait 1,60 €, en 2022, il coûte 1,68€."))
-        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Inserer image graph exo7"));
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
         entete.appendChild(sub_entete_txt);
@@ -151,8 +150,10 @@ $("#seq4").submit(function (event) {
             questions.removeChild(questions.lastChild);
         }
         // Afficher l'enoncé de l'exercice
-        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Lors d’une action de prévention routière, on a mesuré la vitesse de passage des véhicules motorisés dans la rue d’un lycée (limitation à 50 km/h). On a obtenu les mesures suivantes : "))
-        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("image exo 4"));
+        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Lors d’une action de prévention routière, on a mesuré la vitesse de passage des véhicules motorisés dans la rue d’un lycée (limitation à 50 km/h). On a obtenu les mesures suivantes : "));
+        var sub_entete_txt = document.createElement("img");
+        sub_entete_txt.src = "./images/enonces/seq4exo2.png";
+        sub_entete_txt.style.width = '600px';
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
         entete.appendChild(sub_entete_txt);
