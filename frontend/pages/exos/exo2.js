@@ -401,7 +401,7 @@ $("#seq2").submit(function (event) {
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au qotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
@@ -416,7 +416,7 @@ $("#seq2").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au qotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
@@ -431,7 +431,7 @@ $("#seq2").submit(function (event) {
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au qotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question4.appendChild(info);
         question4.appendChild(document.createElement("br"));
@@ -446,7 +446,7 @@ $("#seq2").submit(function (event) {
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au qotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question5.appendChild(info);
         question5.appendChild(document.createElement("br"));
