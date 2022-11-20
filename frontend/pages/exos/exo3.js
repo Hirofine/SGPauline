@@ -71,7 +71,7 @@ $("#seq3").submit(function (event) {
         var n_question = 1;
         var divs = questions.getElementsByClassName("div");
 
-        const questionsol = ["true"];
+        const questionsol = ["false"];
         const corr = ["Correction1"];
 
         //console.log(questionrep[0]);
@@ -237,7 +237,7 @@ $("#seq3").submit(function (event) {
                 }
             });
             //Stocker resulats (table scores)
-            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":2, "exo":2, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
+            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":3, "exo":2, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
             console.log("data before posting : " + data);
             $.ajax({
                 type: "POST",
@@ -260,8 +260,8 @@ $("#seq3").submit(function (event) {
     
 
     if (nb_sub == 5) {
-        localStorage.setItem('exo2state', true);
-        location.href = '../game.html';
+        localStorage.setItem('exo3state', true);
+        
         var data = '{}';
         $.ajax({
             type: "PUT",
@@ -279,10 +279,9 @@ $("#seq3").submit(function (event) {
                 console.log("ERROR: ", e);
             }
         });
+        location.href = '../game.html';
     }
-    else {
-        localStorage.setItem('exo2state', false);
-    }
+    
 
 
 
@@ -292,7 +291,8 @@ function clear_string(str) {
     var clean = str.replace(/;/g, '');
     clean = clean.replace(/ /g, '');
     clean = clean.replace(/"/g, '');
-    clean = clean.replace(/'/g, '');
+    clean = clean.replace(/'/g, ''); 
+    clean = clean.replace(/./g, ',');
     return clean;
 }
 

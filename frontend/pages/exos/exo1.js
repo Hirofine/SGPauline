@@ -446,7 +446,7 @@ $("#seq1").submit(function (event) {
 
     if (nb_sub == 7) {
         localStorage.setItem('exo1state', true);
-        location.href = '../game.html';
+        
         var data = '{}';
         $.ajax({
             type: "PUT",
@@ -464,10 +464,9 @@ $("#seq1").submit(function (event) {
                 console.log("ERROR: ", e);
             }
         });
+        location.href = '../game.html';
     }
-    else {
-        localStorage.setItem('exo1state', false);
-    }
+    
 
 
 
@@ -477,7 +476,8 @@ function clear_string(str) {
     var clean = str.replace(/;/g, '');
     clean = clean.replace(/ /g, '');
     clean = clean.replace(/"/g, '');
-    clean = clean.replace(/'/g, '');
+    clean = clean.replace(/'/g, ''); 
+    clean = clean.replace(/./g, ',');
     return clean;
 }
 
