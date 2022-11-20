@@ -177,7 +177,7 @@ $("#seq1").submit(function (event) {
         info.setAttribute('id', 'exo2info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 2 question 1";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Une situation de proportionnalité est représentée graphiquement dans un repère par des points alignés avec l\'origine du repère. Réciproquement, si une situation est représentée graphiquement dans un repère par des points alignés avec l\'origine du repère, c’est une situation de proportionnalité. ";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
@@ -279,7 +279,7 @@ $("#seq1").submit(function (event) {
         info.setAttribute('id', 'exo3info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 1";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Remplir avec ce que nous donne l\'énoncé";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
@@ -338,7 +338,7 @@ $("#seq1").submit(function (event) {
         info.setAttribute('id', 'exo3info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 2";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Un tableau de proportionnalité est un tableau dans lequel on obtient les nombres d\'une ligne en multipliant l\'autre ligne par un même nombre";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
@@ -360,7 +360,7 @@ $("#seq1").submit(function (event) {
         info.setAttribute('id', 'exo3info3');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 3";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Par quel nombre multiplie-t-on pour passer d\'une ligne à l\'autre ?";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
@@ -376,7 +376,7 @@ $("#seq1").submit(function (event) {
         info.setAttribute('id', 'exo4info3');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 3 question 4";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Il faut mettre en relation le nombre d\'images totales du film avec la durée du film";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question4.appendChild(info);
         question4.appendChild(document.createElement("br"));
