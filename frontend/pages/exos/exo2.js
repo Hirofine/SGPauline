@@ -79,13 +79,13 @@ $("#seq2").submit(function (event) {
         var questionrep = [];
         questionrep[0] = clear_string(inputs[0].value);
         questionrep[1] = clear_string(inputs[1].value);
-        var valid_rep = [false, false, false, false];
+        var valid_rep = [false, false];
         var n_question = 2;
         var divs = questions.getElementsByClassName("div");
 
         const questionsol = ["79", "36%"];
-        const corr = ["Correction1",
-                      "Correction2",
+        const corr = ["./images/corr/seq2exo1que1.png",
+                      "./images/corr/seq2exo1que2.png",
                      ];
 
         //console.log(questionrep[0]);
@@ -98,11 +98,15 @@ $("#seq2").submit(function (event) {
                 valid_rep[i] = true;
                 var q1 = document.getElementById(("question" + (i + 1)));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
                 document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
                 document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
@@ -232,21 +236,25 @@ $("#seq2").submit(function (event) {
         var divs = questions.getElementsByClassName("div");
         var valid_rep = [false, false, false, false];
         const questionsol = ["0,95","1539","y=0.95x","1550"];
-        const corr = ["Correction1",
-                      "Correction2",
-                      "Correction3",
-                      "Correction4",]
+        const corr = ["./images/corr/seq2exo2que1.png",
+                      "./images/corr/seq2exo2que2.png",
+                      "./images/corr/seq2exo2que3.png",
+                      "./images/corr/seq2exo2que4.png",]
 
         for (var i = 0; i < n_question; i++) {
             if (questionrep[i] == questionsol[i]) {
                 valid_rep[i] = true;
                 var q1 = document.getElementById(("question" + (i + 1)));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                var correlmt = document.createElement("img");
+                correlmt.setAttribute('src',corr[i]);
+                q1.appendChild(correlmt);
                 document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
                 document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
@@ -454,37 +462,58 @@ $("#seq2").submit(function (event) {
         var divs = questions.getElementsByClassName("div");
         var valid_rep = [false, false, false, false, false, false, false, false, false, false, false];
         const questionsol = ["(C,A)","(A,B)","(B,B)","(C,B)","(A,C)","(B,C)","(C,C)","1/9","4/9","4/9","5/9"];
-        const corr = ["Correction1",
+        const corr = ["./images/corr/seq2exo3que1.png",
                       "Correction2",
                       "Correction3",
                       "Correction4",
                       "Correction5",
                       "Correction6",
                       "Correction7",
-                      "Correction8",
-                      "Correction9",
-                      "Correction10",
-                      "Correction11"]
+                      "./images/corr/seq2exo2que2.png",
+                      "./images/corr/seq2exo2que3.png",
+                      "./images/corr/seq2exo2que4.png",
+                      "./images/corr/seq2exo2que5.png"]
 
         for (var i = 0; i < n_question; i++) {
 
             if (questionrep[i] == questionsol[i]) {
                 valid_rep[i] = true;
+                
                 if(i<7){
+                    if(i==0){
                     var q1 = document.getElementById("question1");
+                    q1.appendChild(document.createElement("br"));
+                    var correlmt = document.createElement("img");
+                    correlmt.setAttribute('src',corr[0]);
+                    q1.appendChild(correlmt);
+                    }
                 }else{
                     var q1 = document.getElementById(("question" + (i-5)));
+                    q1.appendChild(document.createElement("br"));
+                    var correlmt = document.createElement("img");
+                    correlmt.setAttribute('src',corr[i]);
+                    q1.appendChild(correlmt);
                 }
-                q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                
+               
             } else {
+                
                 if(i<7){
+                    if(i==0){
                     var q1 = document.getElementById("question1");
+                    q1.appendChild(document.createElement("br"));
+                    var correlmt = document.createElement("img");
+                    correlmt.setAttribute('src',corr[0]);
+                    q1.appendChild(correlmt);
+                    }
                 }else{
                     var q1 = document.getElementById(("question" + (i-5)));
+                    q1.appendChild(document.createElement("br"));
+                    var correlmt = document.createElement("img");
+                    correlmt.setAttribute('src',corr[i]);
+                    q1.appendChild(correlmt);
                 }
-                q1.appendChild(document.createElement("br"));
-                q1.appendChild(document.createElement("p").appendChild(document.createTextNode(corr[i])));
+                
                 q1.style.color = "#DF0000";
                 q1.style.fontWeight = "bold";
             }
