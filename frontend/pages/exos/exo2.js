@@ -104,14 +104,14 @@ $("#seq2").submit(function (event) {
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
+                document.getElementById(("question" + (i + 1))).style.color = "#05DF2A";
+                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
-                document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
-                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
         }
 
@@ -175,7 +175,7 @@ $("#seq2").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 2 question 1";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Diminuer une valeur de a% revient à multiplier cette valeur par : 1 - (a/100)";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
@@ -252,14 +252,14 @@ $("#seq2").submit(function (event) {
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
+                document.getElementById(("question" + (i + 1))).style.color = "#05DF2A";
+                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
-                document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
-                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             }
         }
         for (var i = 0; i < n_question; i++) {
@@ -489,6 +489,9 @@ $("#seq2").submit(function (event) {
                     var correlmt = document.createElement("img");
                     correlmt.setAttribute('src',corr[0]);
                     q1.appendChild(correlmt);
+                    q1.style.color = "#05DF2A";
+                    q1.style.fontWeight = "bold";
+                    
                     }
                 }else{
                     var q1 = document.getElementById(("question" + (i-5)));
@@ -496,6 +499,8 @@ $("#seq2").submit(function (event) {
                     var correlmt = document.createElement("img");
                     correlmt.setAttribute('src',corr[i]);
                     q1.appendChild(correlmt);
+                    q1.style.color = "#05DF2A";
+                    q1.style.fontWeight = "bold";
                 }
                 
                
@@ -517,8 +522,6 @@ $("#seq2").submit(function (event) {
                     q1.appendChild(correlmt);
                 }
                 
-                q1.style.color = "#DF0000";
-                q1.style.fontWeight = "bold";
             }
         }
         for (var i = 0; i < n_question; i++) {
