@@ -35,7 +35,9 @@ $("#seq3").submit(function (event) {
         }
         // Afficher l'enoncé de l'exercice
         var entete_txt = document.createElement("p").appendChild(document.createTextNode("Ce graphique représente il une situation de proportionnalité ?"))
-        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Inserer image graph exo7"));
+        var sub_entete_txt = document.createElement("img");
+        sub_entete_txt.src = "./images/enonces/seq3exo1.png";
+        sub_entete_txt.style.width = '600px';
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
         entete.appendChild(sub_entete_txt);
@@ -145,8 +147,10 @@ $("#seq3").submit(function (event) {
             questions.removeChild(questions.lastChild);
         }
         // Afficher l'enoncé de l'exercice
-        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Kevin prend un bonbon dans un sachet opaque. Il ne voit donc pas les bonbons. Le nombre de bonbons de chaque couleur contenus dans le sachet est illustré par le diagramme en bâton suivant :"))
-        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("image exo 3"));
+        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Kevin prend un bonbon dans un sachet opaque. Il ne voit donc pas les bonbons. Le nombre de bonbons de chaque couleur contenus dans le sachet est illustré par le diagramme en bâton suivant :"));
+        var sub_entete_txt = document.createElement("img");
+        sub_entete_txt.src = "./images/enonces/seq3exo2.png";
+        sub_entete_txt.style.width = '600px';
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
         entete.appendChild(sub_entete_txt);
