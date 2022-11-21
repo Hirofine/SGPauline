@@ -5,7 +5,7 @@ var api_url = "http://memoire.hirofine.fr:8000";
 $(document).ready(function () {
     nb_sub = 0;
     var entete = document.getElementById("entete");
-    entete.appendChild(document.createTextNode("Bienvenu sur votre premier défi, vous aves ici quelques exercices a completer pour débloquer ce levier, quand vous serez pret appuyez sur Continuer"));
+    entete.appendChild(document.createTextNode("Vous voici à votre deuxième épreuve, tenez bon"));
     document.getElementById('submit').setAttribute('value', "Continuer");
 
 });
@@ -70,7 +70,9 @@ $("#seq2").submit(function (event) {
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
-        question2.appendChild(document.createElement("input"));
+        var inp = document.createElement("input");
+        inp.setAttribute('placeholder','..%');
+        question2.appendChild(inp);
         questions.appendChild(question2);
 
 
@@ -190,7 +192,7 @@ $("#seq2").submit(function (event) {
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "On utilise le coefficient multiplicateur sur le nombre initiale d\'images";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "On utilise le coefficient multiplicateur sur le nombre initial d\'habitants";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
@@ -200,7 +202,7 @@ $("#seq2").submit(function (event) {
         //Afficher les questions
         var question3 = document.createElement("div");
         question3.setAttribute('id', 'question3');
-        question3.appendChild(document.createElement("label").appendChild(document.createTextNode("Exprimer le nombre d’habitant après la diminution y en fonction du nombre initiale d’habitant dans le village x.")));
+        question3.appendChild(document.createElement("label").appendChild(document.createTextNode("Exprimer le nombre d’habitant après la diminution y en fonction du nombre initial d’habitant dans le village x.")));
         var info = document.createElement("p");
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
@@ -215,7 +217,7 @@ $("#seq2").submit(function (event) {
 
         var question4 = document.createElement("div");
         question4.setAttribute('id', 'question4');
-        question4.appendChild(document.createElement("label").appendChild(document.createTextNode("Une autre année, après une augmentation de 4 % le nombre d’habitant est de 1612. Quel était le nombre d’habitant avant l’augmentation ?")));
+        question4.appendChild(document.createElement("label").appendChild(document.createTextNode("Une autre année, après une augmentation de 4 % le nombre d’habitants est de 1612. Quel était le nombre d’habitants avant l’augmentation ?")));
         var info = document.createElement("p");
         info.setAttribute('id', 'exo1info2');
         info.setAttribute('class', 'info');
@@ -306,7 +308,7 @@ $("#seq2").submit(function (event) {
             questions.removeChild(questions.lastChild);
         }
 
-        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Anissa (A), Baptiste (B) et Coralie tirent les rois. Ils ont de galettes, une à la frangipane (1), une briochée (2) et chacune contenant une fève."))
+        var entete_txt = document.createElement("p").appendChild(document.createTextNode("Anissa (A), Baptiste (B) et Coralie (C) tirent les rois. Ils ont de galettes, une à la frangipane (1), une briochée (2) et chacune contenant une fève."));
         var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Les trois amis partagent chaque galette est trois parts égales et mangent  tous une part de chaque galette. On s’intéresse à la répartition des fèves. Donner les résultats sous forme d’une fraction irréductible."));
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));

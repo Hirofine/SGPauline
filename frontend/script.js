@@ -65,7 +65,7 @@ $("#pseudoform").submit(function(event){
         console.log("ERROR: ", e);
     }});
 
-    var data = '{"id":' + ppid + ', "playerid":' + pid + ', "posx":0, "posy":0 }'; 
+    var data = '{"id":' + ppid + ', "playerid":' + pid + ', "posx":50, "posy":50 }'; 
     console.log("before posting player pos");
     console.log("data " + data);
     $.ajax({type:"POST",

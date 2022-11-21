@@ -33,9 +33,9 @@ $(document).ready(function(){
 
 
   //GREETS PLAYER WITH PSEUDO
-  $("#greetings").html("Bonjour " + localStorage.getItem('pseudo'));
+  $("#greetings").html("<h3>Bonjour " + localStorage.getItem('pseudo') + "</h3>");
 
-
+ 
   //GET MAP FROM API
   $.ajax({url: api_url + "/map/" + mapid, async: false, success: function(result){
     xsize = result.xsize;
@@ -67,6 +67,9 @@ $(document).ready(function(){
       for (var j=0;j<ysize;j++){ 
         maproom = "maproom" + (i*ysize + j);
         opacity = ((result[i*ysize+j].isfound)? 1.0 : 0.05);
+        if ((i*ysize + j) == 0){
+          opacity = 1;
+        }
         li += ("<img id=\"" + maproom + "\" class=\"room\" src=\"../sprites/rooms/" + result[i*ysize + j].posmod + ".png\" width=\""+ room_size + "\" height=\""+ room_size + "\" top=\"0\" left=\"0\" style=\"opacity:" + opacity + "\"></img>"); 
         room_founded[i][j] = result[i*ysize+j].isfound;     
       }

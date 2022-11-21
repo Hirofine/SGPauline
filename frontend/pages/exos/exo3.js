@@ -5,7 +5,7 @@ var api_url = "http://memoire.hirofine.fr:8000";
 $(document).ready(function () {
     nb_sub = 0;
     var entete = document.getElementById("entete");
-    entete.appendChild(document.createTextNode("Bienvenu sur votre premier défi, vous aves ici quelques exercices a completer pour débloquer ce levier, quand vous serez pret appuyez sur Continuer"));
+    entete.appendChild(document.createTextNode("Bientôt la fin, courage"));
     document.getElementById('submit').setAttribute('value', "Continuer");
 
 });
@@ -164,7 +164,7 @@ $("#seq3").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "L\'effectif total est donné par la somme de tout les effectifs";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "L\'effectif total est donné par la somme de tous les effectifs";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
@@ -194,7 +194,7 @@ $("#seq3").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Ceci est l\'aide de l\'exo 2 question 1";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Penser à l\'événement contraire";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));

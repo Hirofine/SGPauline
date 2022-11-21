@@ -5,7 +5,7 @@ var api_url = "http://memoire.hirofine.fr:8000";
 $(document).ready(function () {
     nb_sub = 0;
     var entete = document.getElementById("entete");
-    entete.appendChild(document.createTextNode("Bienvenu sur votre premier défi, vous aves ici quelques exercices a completer pour débloquer ce levier, quand vous serez pret appuyez sur Continuer"));
+    entete.appendChild(document.createTextNode("Bienvenue sur votre premier défi, vous avez ici quelques exercices à completer pour débloquer ce levier, quand vous serez prêt appuyez sur Continuer"));
     document.getElementById('submit').setAttribute('value', "Continuer");
 
 });
@@ -83,7 +83,7 @@ $("#seq1").submit(function (event) {
         var n_question = 2;
         var divs = questions.getElementsByClassName("div");
 
-        const questionsol = ["1/5", "2/5"];
+        const questionsol = ["1/5", "3/5"];
         const corr = ["./images/corr/seq1exo1que1.PNG",
                       "./images/corr/seq1exo1que2.PNG",
                      ];
@@ -346,8 +346,8 @@ $("#seq1").submit(function (event) {
         var empty_option = new Option('', -1);
         empty_option.style.display = 'none';
         sel.appendChild(empty_option);
-        sel.appendChild(new Option('Vrai', true));
-        sel.appendChild(new Option('Faux', false));
+        sel.appendChild(new Option('Oui', true));
+        sel.appendChild(new Option('Non', false));
         question2.appendChild(sel);
         questions.appendChild(question2);
 
@@ -398,7 +398,7 @@ $("#seq1").submit(function (event) {
         }
         var divs = questions.getElementsByClassName("div");
         var valid_rep = [false, false, false, false, false, false, false, false];
-        const questionsol = ["24","240","480","1440","6120","24","true","f(x)=24x"];
+        const questionsol = ["24","240","480","1440","6120","true","24","f(x)=24x"];
         const corr = ["./images/corr/seq1exo3que1.png",
                       "Correction2",
                       "Correction3",
@@ -426,8 +426,8 @@ $("#seq1").submit(function (event) {
                     q1.appendChild(document.createElement("br"));
                     q1.appendChild(correlmt);
                 }
-                document.getElementById(("question" + (i + 1))).style.color = "#05DF2A";
-                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
+                q1.style.color = "#05DF2A";
+                q1.style.fontWeight = "bold";
             } else {
                 if(i<5){
                     if(i==0){

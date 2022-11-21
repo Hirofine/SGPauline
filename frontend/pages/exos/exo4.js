@@ -5,7 +5,7 @@ var api_url = "http://memoire.hirofine.fr:8000";
 $(document).ready(function () {
     nb_sub = 0;
     var entete = document.getElementById("entete");
-    entete.appendChild(document.createTextNode("Bienvenu sur votre premier défi, vous aves ici quelques exercices a completer pour débloquer ce levier, quand vous serez pret appuyez sur Continuer"));
+    entete.appendChild(document.createTextNode("Vous y êtes, la dernière série d'exercice avant la sortie"));
     document.getElementById('submit').setAttribute('value', "Continuer");
 
 });
@@ -50,7 +50,9 @@ $("#seq4").submit(function (event) {
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
-        question1.appendChild(document.createElement("input"));
+        var inp = document.createElement("input");
+        inp.setAttribute('placeholder', '..%')
+        question1.appendChild(inp);
         questions.appendChild(question1);
 
 
@@ -80,7 +82,7 @@ $("#seq4").submit(function (event) {
         var n_question = 2;
         var divs = questions.getElementsByClassName("div");
 
-        const questionsol = ["5%", "y=0.5x"];
+        const questionsol = ["5%", "y=0,5x"];
         const corr = ["./images/corr/seq4exo1que1.png", 
                       "./images/corr/seq4exo1que2.png"];
 
@@ -167,7 +169,7 @@ $("#seq4").submit(function (event) {
         info.setAttribute('id', 'exo1info1');
         info.setAttribute('class', 'info');
         info.appendChild(document.createTextNode("Aide"));
-        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "L\'effectif total est donné par la somme de tout les effectifs.";');
+        info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "L\'effectif total est donné par la somme de tous les effectifs.";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
