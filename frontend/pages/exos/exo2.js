@@ -315,7 +315,7 @@ $("#seq2").submit(function (event) {
         }
 
         var entete_txt = document.createElement("p").appendChild(document.createTextNode("Anissa (A), Baptiste (B) et Coralie (C) tirent les rois. Ils ont de galettes, une à la frangipane (1), une briochée (2) et chacune contenant une fève."));
-        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Les trois amis partagent chaque galette est trois parts égales et mangent  tous une part de chaque galette. On s’intéresse à la répartition des fèves. Donner les résultats sous forme d’une fraction irréductible."));
+        var sub_entete_txt = document.createElement("p").appendChild(document.createTextNode("Les trois amis partagent chaque galette en trois parts égales et mangent  tous une part de chaque galette. On s’intéresse à la répartition des fèves. Donner les résultats sous forme d’une fraction irréductible."));
         entete.appendChild(entete_txt);
         entete.appendChild(document.createElement("br"));
         entete.appendChild(sub_entete_txt);
