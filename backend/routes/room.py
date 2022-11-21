@@ -20,7 +20,7 @@ async def read_data(mapid: int):
 @room.delete("/room/")
 async def delete_data():
     conn.execute(rooms.delete())
-    return conn.execute(rooms.select()).fetchall()
+    return 1 #conn.execute(rooms.select()).fetchall()
 
 @room.put("/room/{id}")
 async def update_data(id:int, isfound: bool, mapid: int):
@@ -29,4 +29,4 @@ async def update_data(id:int, isfound: bool, mapid: int):
         
     ).where(rooms.c.id == id and rooms.c.mapid == mapid))
     
-    return conn.execute(rooms.select()).fetchall()
+    return 1 #conn.execute(rooms.select()).fetchall()

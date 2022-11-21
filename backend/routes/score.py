@@ -32,4 +32,4 @@ async def write_data(score: Score):
         valid = score.valid,
         answer = score.answer
     ))
-    return conn.execute(scores.select()).fetchall()
+    return 1 #conn.execute(scores.select()).fetchall()

@@ -52,6 +52,7 @@ $("#seq3").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Une situation de proportionnalité est représentée graphiquement dans un repère par des points alignés avec l\'origine du repère.  Réciproquement, si une situation est représentée graphiquement dans un repère par des points alignés avec l\'origine du repère, c\'est une situation de proportionnalité. ";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(document.createElement("br"));
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
         var sel = document.createElement("select");
@@ -166,6 +167,7 @@ $("#seq3").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "L\'effectif total est donné par la somme de tous les effectifs";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(document.createElement("br"));
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
         question1.appendChild(document.createElement("input"));
@@ -181,6 +183,7 @@ $("#seq3").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles ";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question2.appendChild(document.createElement("br"));
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
         question2.appendChild(document.createElement("input"));
@@ -196,6 +199,7 @@ $("#seq3").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Penser à l\'événement contraire";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question3.appendChild(document.createElement("br"));
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
         question3.appendChild(document.createElement("input"));

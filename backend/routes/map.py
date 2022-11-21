@@ -80,7 +80,7 @@ async def write_data(map: Map):
             )) 
             
             
-    return conn.execute(maps.select()).fetchall()
+    return 1 #conn.execute(maps.select()).fetchall()
 
 @map.put("/{id}")
 async def update_data(id:int, map: Map):
@@ -89,10 +89,10 @@ async def update_data(id:int, map: Map):
         ysize=map.ysize
     ).where(map.c.id == id))
     
-    return conn.execute(maps.selec()).fetchall()
+    return 1 #conn.execute(maps.selec()).fetchall()
 
 @map.delete("/map/")
 async def delete_data():
     conn.execute(rooms.delete())
     conn.execute(maps.delete())
-    return conn.execute(maps.select()).fetchall()
+    return 1# conn.execute(maps.select()).fetchall()

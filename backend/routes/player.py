@@ -28,7 +28,7 @@ async def read_data(mapid: int):
 @player.delete("/player/")
 async def delete_data():
     conn.execute(players.delete())
-    return conn.execute(players.select()).fetchall()
+    return 1 #conn.execute(players.select()).fetchall()
 
 @player.post("/player/")
 async def write_data(player: Player):
@@ -37,4 +37,4 @@ async def write_data(player: Player):
         mapid = player.mapid,
         pseudo = player.pseudo
     ))
-    return conn.execute(players.select()).fetchall()
+    return 1 #conn.execute(players.select()).fetchall()

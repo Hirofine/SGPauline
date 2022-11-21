@@ -48,6 +48,7 @@ $("#seq4").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Chercher le coefficient multiplicateur. En déduire le pourcentage d\'augmentation";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(document.createElement("br"));
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
         var inp = document.createElement("input");
@@ -65,6 +66,7 @@ $("#seq4").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Essayer de faire correspondre y et x avec les données de l\'énoncé";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question2.appendChild(document.createElement("br"));
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
         question2.appendChild(document.createElement("input"));
@@ -171,6 +173,7 @@ $("#seq4").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "L\'effectif total est donné par la somme de tous les effectifs.";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(document.createElement("br"));
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
         question1.appendChild(document.createElement("input"));
@@ -186,6 +189,7 @@ $("#seq4").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "A partir de quand un véhicule est en excès de vitesse ?La fréquence d\'apparition est donnée par le quotient de son effectif par l\'effectif total";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question2.appendChild(document.createElement("br"));
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
         question2.appendChild(document.createElement("input"));
@@ -201,6 +205,7 @@ $("#seq4").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = " L\'étendue d\'une série de données est la différence entre la plus grande valeur et la plus petite valeur de la série.";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question3.appendChild(document.createElement("br"));
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
         question3.appendChild(document.createElement("input"));
@@ -233,14 +238,15 @@ $("#seq4").submit(function (event) {
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
+                document.getElementById(("question" + (i + 1))).style.color = "#05DF2A";
+                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
             } else {
                 var q1 = document.getElementById("question" + (i + 1));
                 q1.appendChild(document.createElement("br"));
                 var correlmt = document.createElement("img");
                 correlmt.setAttribute('src',corr[i]);
                 q1.appendChild(correlmt);
-                document.getElementById(("question" + (i + 1))).style.color = "#DF0000";
-                document.getElementById(("question" + (i + 1))).style.fontWeight = "bold";
+                
             }
         }
         for (var i = 0; i < n_question; i++) {

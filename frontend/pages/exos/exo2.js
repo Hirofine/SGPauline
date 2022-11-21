@@ -53,6 +53,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = " L\'étendue d’une série de données est la différence entre la plus grande valeur et la plus petite valeur de la série.";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(document.createElement("br"));
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
         question1.appendChild(document.createElement("input"));
@@ -68,6 +69,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = " La fréquence d\'apparition est donnée par le quotient de son effectif par l’effectif total";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question2.appendChild(document.createElement("br"));
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
         var inp = document.createElement("input");
@@ -179,6 +181,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Diminuer une valeur de a% revient à multiplier cette valeur par : 1 - (a/100)";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(document.createElement("br"));
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
         question1.appendChild(document.createElement("input"));
@@ -194,6 +197,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "On utilise le coefficient multiplicateur sur le nombre initial d\'habitants";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question2.appendChild(document.createElement("br"));
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
         question2.appendChild(document.createElement("input"));
@@ -209,6 +213,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Essayer de faire correspondre y et x avec les données de l\'énoncé et de la question précédente";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question3.appendChild(document.createElement("br"));
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
         question3.appendChild(document.createElement("input"));
@@ -224,6 +229,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Trouver dans un premier temps le coefficient multiplicateur. Écrire sous forme d’une équation puis la résoudre.";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question4.appendChild(document.createElement("br"));
         question4.appendChild(info);
         question4.appendChild(document.createElement("br"));
         question4.appendChild(document.createElement("input"));
@@ -325,12 +331,13 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Attention à l\'ordre de remplissage des cases";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question1.appendChild(document.createElement("br"));
         question1.appendChild(info);
         question1.appendChild(document.createElement("br"));
         var table = document.createElement("table");
         var tr1 = document.createElement("tr");
         var td1 = document.createElement("td");
-        td1.appendChild(document.createTextNode("Feve 2 \ Feve 1"));
+        td1.appendChild(document.createTextNode("Feve 2 \\ Feve 1"));
         var td2 = document.createElement("td");
         td2.appendChild(document.createTextNode("A"))
         var td3 = document.createElement("td");
@@ -405,6 +412,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question2.appendChild(document.createElement("br"));
         question2.appendChild(info);
         question2.appendChild(document.createElement("br"));
         question2.appendChild(document.createElement("input"));
@@ -420,6 +428,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question3.appendChild(document.createElement("br"));
         question3.appendChild(info);
         question3.appendChild(document.createElement("br"));
         question3.appendChild(document.createElement("input"));
@@ -435,6 +444,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question4.appendChild(document.createElement("br"));
         question4.appendChild(info);
         question4.appendChild(document.createElement("br"));
         question4.appendChild(document.createElement("input"));
@@ -450,6 +460,7 @@ $("#seq2").submit(function (event) {
         info.appendChild(document.createTextNode("Aide"));
         info.setAttribute('onmouseover', 'this.firstChild.nodeValue = "Dans une expérience aléatoire où il y a équiprobabilité, la probabilité d\'un événement est égale au quotient du nombre d\'issues favorables permettant à l\'événement de se réaliser par le nombre total d\'issues possibles";');
         info.setAttribute('onmouseout', 'this.firstChild.nodeValue = "Aide";');
+        question5.appendChild(document.createElement("br"));
         question5.appendChild(info);
         question5.appendChild(document.createElement("br"));
         question5.appendChild(document.createElement("input"));

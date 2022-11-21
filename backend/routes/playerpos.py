@@ -27,7 +27,7 @@ async def read_data(playerid: int):
 @playerpos.delete("/playerpos/")
 async def delete_data():
     conn.execute(playerposs.delete())
-    return conn.execute(playerposs.select()).fetchall()
+    return 1 #conn.execute(playerposs.select()).fetchall()
 
 @playerpos.post("/playerpos/")
 async def write_data(playerpos: Playerpos):
@@ -37,7 +37,7 @@ async def write_data(playerpos: Playerpos):
         posx = playerpos.posx,
         posy = playerpos.posy
     ))
-    return conn.execute(playerposs.select()).fetchall()
+    return 1 #conn.execute(playerposs.select()).fetchall()
 
 @playerpos.put("/playerpos/{id}")
 async def update_data(id:int, playerpos: Playerpos):
@@ -47,4 +47,4 @@ async def update_data(id:int, playerpos: Playerpos):
         
     ).where(playerposs.c.id == id))
     
-    return conn.execute(playerposs.select()).fetchall()
+    return 1 #conn.execute(playerposs.select()).fetchall()
