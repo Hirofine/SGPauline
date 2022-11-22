@@ -23,8 +23,10 @@ async def read_data(playerid: int):
 
 @score.post("/score/")
 async def write_data(score: Score):
+    lastsco = conn.execute(scores.select()).fetchall()
+    lsc = lastsco.pop();
     conn.execute(scores.insert().values(
-        id=score.id,
+        id=lsc.id+1,
         playerid = score.playerid,
         seq = score.seq,
         exo = score.exo,

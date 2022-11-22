@@ -24,8 +24,10 @@ async def read_data(id: int):
 
 @map.post("/map/")
 async def write_data(map: Map):
+    mid = conn.execute(maps.select()).fetchall()
+    lastmap = mid.pop()
     conn.execute(maps.insert().values(
-        id=map.id,
+        id=lastmap.id + 1,
         xsize = map.xsize,
         ysize = map.ysize
     ))
@@ -59,7 +61,7 @@ async def write_data(map: Map):
                 tmpleverroom = True
                 conn.execute(leverrooms.insert().values(
                     id = i*map.ysize + j,
-                    mapid = map.id,
+                    mapid = lastmap.id+1,
                     roomid = i*map.ysize + j,
                     posx = j,
                     posy = i,   
@@ -69,7 +71,7 @@ async def write_data(map: Map):
                   
             conn.execute(rooms.insert().values(
                 id = i*map.ysize + j,
-                mapid = map.id,
+                mapid = lastmap.id+1,
                 posx = j,
                 posy = i,                
                 posmod = tmpposmod,    
@@ -80,7 +82,7 @@ async def write_data(map: Map):
             )) 
             
             
-    return 1 #conn.execute(maps.select()).fetchall()
+    return conn.execute(maps.select().where(maps.c.id==lastmap.id+1)).fetchall()
 
 @map.put("/{id}")
 async def update_data(id:int, map: Map):

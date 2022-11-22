@@ -31,13 +31,15 @@ async def delete_data():
 
 @playerpos.post("/playerpos/")
 async def write_data(playerpos: Playerpos):
+    ppid = conn.execute(playerposs.select()).fetchall()
+    lastppos = ppid.pop();
     conn.execute(playerposs.insert().values(
-        id=playerpos.id,
+        id=lastppos.id + 1,
         playerid = playerpos.playerid,
         posx = playerpos.posx,
         posy = playerpos.posy
     ))
-    return 1 #conn.execute(playerposs.select()).fetchall()
+    return conn.execute(playerposs.select().where(playerposs.c.id==lastppos.id+1)).fetchall()
 
 @playerpos.put("/playerpos/{id}")
 async def update_data(id:int, playerpos: Playerpos):

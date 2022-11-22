@@ -7,6 +7,8 @@ $(document).ready(function(){
 });
 $("#pseudoform").submit(function(event){
     event.preventDefault();
+    var subbut = document.getElementById("submitbut");
+    subbut.style.display = "none";
     console.log("only submit");
     const inputs = document.getElementById("pseudoform").elements;
     const pseudo = inputs["pseudo"].value;
@@ -15,7 +17,7 @@ $("#pseudoform").submit(function(event){
     var ppid = 0;
 
     //get the mapid of the filled player if existing (-1) si pas de map crée pour ce pseudo
-
+/*
     // GET A PLAYER ID
     $.ajax({url: api_url  + "/player/newplayerid", async: false, success: function(result){
         console.log(result);
@@ -46,10 +48,28 @@ $("#pseudoform").submit(function(event){
         console.log("ERROR: ", e);
     }});
     console.log("before posting new player, pid: " + pid + ", mid: " + mid + ", pseudo : " + clear_string(pseudo));
-    
+    */
+    var vxsize = 5;
+    var vysize = 5;
+    var data = '{"id":' + 0 + ', "xsize":' + vxsize + ', "ysize": ' + vysize + ' }';
+    $.ajax({type:"POST",
+            url: api_url + "/map/", 
+            async: false, 
+            data: data,
+            dataType: "json",
+            contentType: "application/json",
+            success: function(result){
+                mid=result[0].id;
+        console.log(result);
+        //mid = result;
+    },
+    error : function(e) {
+        pid = -1;
+        console.log("ERROR: ", e);
+    }});
 
     // CREATE PLAYER
-    var data = '{"id":' + pid + ', "mapid":' + mid + ', "pseudo": "' + clear_string(pseudo) + '" }';         
+    var data = '{"id":' + 0 + ', "mapid":' + mid + ', "pseudo": "' + clear_string(pseudo) + '" }';         
     $.ajax({type:"POST",
             url: api_url + "/player/", 
             async: false, 
@@ -57,15 +77,17 @@ $("#pseudoform").submit(function(event){
             dataType: "json",
             contentType: "application/json",
             success: function(result){
-        console.log(result);
-        //pid = result;
-    },
+                pid= result[0].id
+                
+                console.log(result);
+                //pid = result;
+            },
     error : function(e) {
         pid = -1;
         console.log("ERROR: ", e);
     }});
 
-    var data = '{"id":' + ppid + ', "playerid":' + pid + ', "posx":50, "posy":50 }'; 
+    var data = '{"id":' + 0 + ', "playerid":' + pid + ', "posx":50, "posy":50 }'; 
     console.log("before posting player pos");
     console.log("data " + data);
     $.ajax({type:"POST",
@@ -75,6 +97,7 @@ $("#pseudoform").submit(function(event){
             dataType: "json",
             contentType: "application/json",
             success: function(result){
+                ppid=result[0].id;
         console.log(result);
         //ppid = result;
     },
@@ -84,23 +107,7 @@ $("#pseudoform").submit(function(event){
     }});
 
 
-    var vxsize = 5;
-    var vysize = 5;
-    var data = '{"id":' + mid + ', "xsize":' + vxsize + ', "ysize": ' + vysize + ' }';
-    $.ajax({type:"POST",
-            url: api_url + "/map/", 
-            async: false, 
-            data: data,
-            dataType: "json",
-            contentType: "application/json",
-            success: function(result){
-        console.log(result);
-        //mid = result;
-    },
-    error : function(e) {
-        pid = -1;
-        console.log("ERROR: ", e);
-    }});
+   
 
     //STORE PLAYER VALUE IN LOCAL STORAGE AND CLEAN FROM POTENTIAL PREVIOUS GAMES
     localStorage.setItem('playerid', pid);

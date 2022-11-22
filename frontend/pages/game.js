@@ -142,7 +142,7 @@ function onleverclick(state, id){
   var mapid= localStorage.getItem("mapid");
   //DETERMINER SI PLAYER ASSEZ PROCHE (plus tard)
 
-  var distance_max = Math.round(room_size/10);
+  var distance_max = Math.round(room_size/5);
   var lever = document.getElementById("lever" + id);
   var poslevx = lever.getBoundingClientRect().left;
   var poslevy = lever.getBoundingClientRect().top;

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from config.db import conn
-from models.index import players
+from models.index import players, maps
 from schemas.index import Player
 player = APIRouter()
 
@@ -32,9 +32,15 @@ async def delete_data():
 
 @player.post("/player/")
 async def write_data(player: Player):
+    #get a new player id
+    pid = conn.execute(players.select()).fetchall()
+    lastuser = pid.pop();
+    
+    mid = conn.execute(maps.select()).fetchall()
+    lastmap = mid.pop()
     conn.execute(players.insert().values(
-        id=player.id,
+        id=lastuser.id+1,
         mapid = player.mapid,
         pseudo = player.pseudo
     ))
-    return 1 #conn.execute(players.select()).fetchall()
+    return conn.execute(players.select().where(players.c.id==lastuser.id+1)).fetchall()

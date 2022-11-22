@@ -14,8 +14,25 @@ p.info{
   
 }
 
+body{
+  background-color: #CCC;
+}
+
+div{
+
+  background-color: #EEE;
+}
+
 div.label{
   float: left;
+}
+
+#questions{
+  background-color: #CCC;
+}
+
+#maindiv{
+  background-color: #CCC;
 }
 
 div.question{

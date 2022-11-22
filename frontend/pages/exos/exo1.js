@@ -116,19 +116,9 @@ $("#seq1").submit(function (event) {
 
         //get a new score id
         for (var i = 0; i < n_question; i++) {
-            var scoreid;
-            $.ajax({
-                url: api_url + "/score/newscoreid", async: false, success: function (result) {
-                    console.log("new score id: " + result);
-                    scoreid = result;
-                },
-                error: function (e) {
-                    scoreid = -1;
-                    console.log("ERROR: ", e);
-                }
-            });
+            
             //Stocker resulats (table scores)
-            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":1, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
+            var data = '{"id":' + 0 + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":1, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
             console.log("data before posting : " + data);
             $.ajax({
                 type: "POST",
@@ -224,19 +214,9 @@ $("#seq1").submit(function (event) {
             }
         }
         for (var i = 0; i < n_question; i++) {
-            var scoreid;
-            $.ajax({
-                url: api_url + "/score/newscoreid", async: false, success: function (result) {
-                    console.log("new score id: " + result);
-                    scoreid = result;
-                },
-                error: function (e) {
-                    scoreid = -1;
-                    console.log("ERROR: ", e);
-                }
-            });
+            
             //Stocker resulats (table scores)
-            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":2, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
+            var data = '{"id":' + 0 + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":2, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
             console.log("data before posting : " + data);
             $.ajax({
                 type: "POST",
@@ -457,18 +437,9 @@ $("#seq1").submit(function (event) {
         }
         for (var i = 0; i < n_question; i++) {
             var scoreid;
-            $.ajax({
-                url: api_url + "/score/newscoreid", async: false, success: function (result) {
-                    console.log("new score id: " + result);
-                    scoreid = result;
-                },
-                error: function (e) {
-                    scoreid = -1;
-                    console.log("ERROR: ", e);
-                }
-            });
+            
             //Stocker resulats (table scores)
-            var data = '{"id":' + scoreid + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":3, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
+            var data = '{"id":' + 0 + ', "playerid":' + localStorage.getItem('playerid') + ', "seq":1, "exo":3, "question":' + i + ',"valid":' + valid_rep[i] + ', "answer": "' + questionrep[i] + '" }';
             console.log("data before posting : " + data);
             $.ajax({
                 type: "POST",
