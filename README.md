@@ -1,19 +1,21 @@
-# SGPauline
-Serious Game pour Pauline 
+#SGPauline
 
-Projet de Serious Game developpé pour le sujet de mémoire de master de ma compagne.
-Développé le soir en rentrant du travail en l'espace d'envion 2 semaines.
-Non prévu pour être publique, mais peut-etre une sorte de vitrine de ce que j'ai pu faire sans trop d'experience en 2 semaines et sans cahier des charges défini.
+Serious Game pour Pauline
 
-L'objectif du projet étant de developper un Serious Game (Jeu d'apprentissage) qui correspondents à différent critères:
+Projet de Serious Game développé pour le sujet de mémoire de master de ma compagne.
+Développé le soir en rentrant du travail en l'espace d'environ 2 semaines.
+Non prévu pour être public, mais peut-être une sorte de vitrine de ce que j'ai pu faire sans trop d'expérience en 2 semaines et sans cahier des charges défini.
+
+L'objectif du projet étant de développer un Serious Game (Jeu d'apprentissage) qui corresponde à différents critères :
+
   - Gratuit
-  - Pas d'installation / executable
-  - Pas de stockage de données personnelles
-  - Niveau de Mathématiques et notions de Mathèmatiques précises
-  - Données des résultats analysables
-  - Ne pas être un simple exerciseur
+  -  Pas d'installation / exécutable
+  -  Pas de stockage de données personnelles
+  -  Niveau de Mathématiques et notions de Mathématiques précises
+  -  Données des résultats analysables
+  -  Ne pas être un simple exerciceur
 
-Avec ces contraintes techniques, on est parti sur un jeu navigateur, évitant ainsi d'avoir un executable qui pourrait être bloqué par l'antivirus du collège. L'avantage du site web etant que toutes les données de reponses peuvent être stockés au niveau du back-end.
-Le choix du type de jeu est une forme de labyrinthe ou la carte est découverte progressivement, il faut trouver différents levier qui redirige vers des sequences d'exercices, ces exercices offrent différents types de réponses dont la correction est automatisé, permettant aux éléves de savoir aussitôt quelles erreurs ils ont fait durant la séquence. Apres avoir trouvé et activé les cinqs leviers, ils ont fini le jeu.
+Avec ces contraintes techniques, on est parti sur un jeu navigateur, évitant ainsi d'avoir un exécutable qui pourrait être bloqué par l'antivirus du collège. L'avantage du site web étant que toutes les données de réponses peuvent être stockées au niveau du back-end.
+Le choix du type de jeu est une forme de labyrinthe où la carte est découverte progressivement, il faut trouver différents leviers qui redirigent vers des séquences d'exercices. Ces exercices offrent différents types de réponses dont la correction est automatisée, permettant aux élèves de savoir aussitôt quelles erreurs ils ont faites pendant la séquence. Après avoir trouvé et activé les cinq leviers, ils ont fini le jeu.
 
-Au final malgrés des problèmes technique lors de l'utilisation (connection internet de faible qualité, et manque de support de synchrnoisation dans le code, qui à été fixé pour une deuxième séance) il semblerait que l'utilisation d'un support plus ludique qu'une classique feuille d'exercice ne soit ni benefique, ni pénalisant pour les éléves, ceci dit les conclusions sont à prendres avec de grosses pincettes puisque l'echantillon (une vingtaine d'élèves) est trop faible pour pouvoir conclure avec certitude.
+Au final, malgré des problèmes techniques lors de l'utilisation (connexion internet de faible qualité, et manque de support de synchronisation dans le code, qui a été fixé pour une deuxième séance), il semblerait que l'utilisation d'un support plus ludique qu'une classique feuille d'exercice ne soit ni bénéfique, ni pénalisante pour les élèves. Cependant, les conclusions sont à prendre avec des pincettes puisque l'échantillon (une vingtaine d'élèves) est trop faible pour pouvoir conclure avec certitude.
